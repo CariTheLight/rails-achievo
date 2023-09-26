@@ -1,2 +1,19 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- app/views/pages/home.html.erb -->
+<h1>Welcome to achievo</h1>
+
+<form action="<%= root_path %>">
+  <textarea rows="5" cols="33" name="prompt"></textarea>
+  <input type="submit" class="btn btn-primary">
+</form>
+
+<div id="response">
+  <% if @response.present? %>
+    <h2>Response:</h2>
+      <ul>
+        <% response.each_line do |line| %>
+          <% next if line.strip.empty? || line.strip == '-' %>
+          <li><%= line.strip.gsub(/^- /, '') %></li>
+        <% end %>
+      </ul>
+  <% end %>
+</div>

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'goals/destroy'
   devise_for :users
   root to: "pages#home"
+  post '/submit_prompt', to: 'pages#submit_prompt'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
