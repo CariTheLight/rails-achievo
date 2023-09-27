@@ -5,8 +5,8 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
-
   end
+
   def generate_goal
     # Use an AI model or service to generate a goal prompt
     goal_description = generate_goal_description
@@ -21,8 +21,6 @@ class GoalsController < ApplicationController
       render :new
     end
   end
-
-  private
 
   # Example method to generate a goal description using an AI service
   def generate_goal_description
@@ -66,5 +64,10 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @goal.destroy
     redirect_to goals_url, notice: "Goal was succesfully deleted"
+  end
+
+  private
+  def goal_params
+    params.require(:goals).permit(:name, :description, :start_date, :end_date, :status, :resources, :time_available, :user_id)
   end
 end
