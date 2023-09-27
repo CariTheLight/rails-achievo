@@ -3,7 +3,7 @@
   <div class="navbar navbar-expand-sm navbar-lewagon">
     <div class="container-fluid ">
       <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "default-monochrome.svg" %>
+        <%= image_tag "" %>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,12 +13,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <%# if user_signed_in? %>
-          <li class="nav-item dropdown ">
-              <%= link_to "create a goal", "#", class: "nav-link dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"></li>
-              <li><%= link to "AI" "#" class: "dropdown-item"%></li>
-            <li class="nav-item dropdown">
-              <%= link_to "My Goals", "#", class:"dropdown-item" %>
+            <li class="nav-item active">
+              <%= link_to "create a goal", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "My Goals", "#", class: "nav-link" %>
             </li>
             <li class="nav-item dropdown">
               <%= image_tag "account.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -32,7 +31,7 @@
             <!--li class="nav-item"-->
               <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
             <!--/li-->
-          <% end %>
+          <%# end %>
         </ul>
       </div>
     </div>

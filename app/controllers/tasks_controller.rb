@@ -1,10 +1,4 @@
 class TasksController < ApplicationController
-  def index
-  end
-
-  def show
-  end
-
   def new
   end
 
@@ -19,4 +13,5 @@ class TasksController < ApplicationController
 
   def destroy
   end
+  
 end
