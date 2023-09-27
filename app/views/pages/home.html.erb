@@ -8,14 +8,13 @@
 </form>
 
 <div id="response">
-  <% if @response.present? %>
-    <h2>Response:</h2>
-      <ul>
-        <% response.each_line do |line| %>
-          <% next if line.strip.empty? || line.strip == '-' %>
-          <li><%= line.strip.gsub(/^- /, '') %></li>
-        <% end %>
-      </ul>
+  <% if @tasks.present? %>
+    <h2>Tasks to Complete:</h2>
+    <ul>
+      <% @tasks.each_with_index do |task, index| %>
+        <li><strong>Day <%= index + 1 %>:</strong> <%= task.strip %></li>
+      <% end %>
+    </ul>
   <% end %>
 </div>
 
