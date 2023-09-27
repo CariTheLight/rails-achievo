@@ -3,7 +3,7 @@
   <div class="navbar navbar-expand-sm navbar-lewagon">
     <div class="container-fluid ">
       <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "" %>
+        <%= image_tag "default-monochrome.svg" %>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
         <ul class="navbar-nav me-auto">
           <%# if user_signed_in? %>
             <li class="nav-item active">
-              <%= link_to "create a goal", "goals_new", class: "nav-link" %>
+              <%= link_to "create a goal", "#", class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "My Goals", "#", class: "nav-link" %>
