@@ -11,19 +11,25 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
+        <ul class="no-bullets nav me-auto">
           <%# if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "create a goal", "#", class: "nav-link" %>
+          <li class="nav-item dropdown">
+                <select style="none">
+                  <option><%=link_to  "Create goal", class: "nav dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></option>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <option><%= link_to "create with AI", "#", class: "dropdown-item" %></option>
+                </select>
+              </div>
             </li>
-            <li class="nav-item">
-              <%= link_to "My Goals", "#", class: "nav-link" %>
+          <li class="no-bullets dropdown">
+                <select style="none">
+                  <option><%=link_to  "My goals", class: "nav dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></option>
+                </select>
+              </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="no-bullets dropdown">
               <%= image_tag "account.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "profile", "#", class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
                 <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
             </li>
