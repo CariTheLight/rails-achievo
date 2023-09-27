@@ -29,7 +29,6 @@ class GoalsController < ApplicationController
     # For simplicity, we'll use a placeholder description here
     "Learn a new language and become conversational."
   end
-end
 
   def new
     @goal = Goal.new
@@ -40,10 +39,10 @@ end
     @goal.user_id = current_user.id
 
     if @goal.save!
-      redirect_to goal_path, notice: "Goal was successfully created!"
+      redirect_to goal_path(@goal), notice: "Goal was successfully created!"
     else
       render :new, alert: "Please try again"
-
+    end
   end
 
   def edit
@@ -56,6 +55,7 @@ end
       redirect_to @goal, notice: "Goal was succesfully updated."
     else
       render :edit
+    end
   end
 
   def destroy
