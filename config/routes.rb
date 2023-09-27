@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   post '/submit_prompt', to: 'pages#submit_prompt'
   resources :goals, only: [:show, :new, :create, :edit, :update, :destroy] do
-    resources :tasks, only: [:new, :create, :edit, :update, :destory]
+    resources :tasks, only: [:new, :create, :edit, :update]
   end
+  resources :tasks, only: :destroy
 end
