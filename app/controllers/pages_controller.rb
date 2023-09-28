@@ -8,23 +8,23 @@ class PagesController < ApplicationController
     end
   end
 
-  def submit_prompt
-    prompt = params[:prompt]
-    end_date = Date.parse(params[:end_date]) # Parse the end date from the form
+  # def submit_prompt
+  #   prompt = params[:prompt]
+  #   end_date = Date.parse(params[:end_date]) # Parse the end date from the form
 
-    # Calculate the number of days between today and the end date
-    days = (end_date - Date.today).to_i
+  #   # Calculate the number of days between today and the end date
+  #   days = (end_date - Date.today).to_i
 
-    # Initialize an array to store tasks for each day
-    tasks = []
+  #   # Initialize an array to store tasks for each day
+  #   tasks = []
 
-    # Loop through each day and generate tasks
-    (0..days).each do |day|
-      response = OpenaiService.new("#{prompt} for day #{day + 1}").call
-      tasks << response
-    end
+  #   # Loop through each day and generate tasks
+  #   (0..days).each do |day|
+  #     response = OpenaiService.new("#{prompt} for day #{day + 1}").call
+  #     tasks << response
+  #   end
 
-    @tasks = tasks
-    render "pages/home"
-  end
+  #   @tasks = tasks
+  #   render "pages/home"
+  # end
 end
