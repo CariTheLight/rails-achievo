@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="container-content">
     <h1><%= @goal.name %></h1>
@@ -13,4 +14,5 @@
   <div class="btn btn-primary">
     <%= link_to "delete", goal_path(@goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
   </div>
+
 </div>
