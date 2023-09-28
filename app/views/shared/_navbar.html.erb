@@ -15,15 +15,14 @@
           <%# if user_signed_in? %>
           <li class="nav-item dropdown">
                 <select style="none">
-                  <option><%=link_to  "Create goal", class: "nav dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></option>
-                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <option><%=link_to  "Create goal"%>
                     <option><%= link_to "create with AI", "#", class: "dropdown-item" %></option>
                 </select>
               </div>
             </li>
           <li class="no-bullets dropdown">
                 <select style="none">
-                  <option><%=link_to  "My goals", class: "nav dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></option>
+                  <option><%=link_to  "My goals"%></option>
                 </select>
               </div>
             </li>
