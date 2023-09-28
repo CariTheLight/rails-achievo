@@ -1,20 +1,21 @@
-<h1>Goals#new</h1>
-<p>Find me in app/views/goals/new.html.erb</p>
+<h1>Create a Goal</h1>
+
 
 <%= simple_form_for(@goal) do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
     <%= f.input :name, label: "What is the name of your goal?" %>
     <%= f.input :description, label: "Please describe your goal.", as: :text %>
-    <%= f.input :start_date, label: "When do you want to start your goal? (Please add a date in this format: Wednesday 27 September 2023)"%>
-    <%= f.input :end_date, label: "When do you want to complete your goal? (Please add a date in this format: Wednesday 27 September 2023)" %>
-    <%= f.input :status, label: "Please describe the status or progress you have made so far towards achieving your goal." %>
+    <%= f.input :start_date, label: "When do you want to start your goal? (Please add a date in this format: Wednesday 27 September 2023)", as: :date, html5: true %>
+    <%= f.input :end_date, label: "When do you want to complete your goal? (Please add a date in this format: Wednesday 27 September 2023)", as: :date, html5: true %>
     <%= f.input :resources, label: "Please list any tools, materials, or support you have at your disposal to help you achieve this goal." %>
     <%= f.input :time_available, label: "Please describe the amount of time you have for your goal per day, week, month, or year." %>
+    <%= f.input :generate_tasks, as: :boolean, label: "Create tasks with AI", as: :boolean, checked_value: 'true', unchecked_value: 'false' %>
     <input type="hidden" name="user_id" value="user_id">
   </div>
 
   <div class="form-actions">
-    <%= f.submit "Submit answers", class: "btn btn-primary" %>
+    <%= f.submit "Submit form" , class: "btn btn-primary" %>
+
   </div>
 <% end %>

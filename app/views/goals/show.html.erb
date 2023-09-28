@@ -1,7 +1,33 @@
 
 <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('pexels-pixabay-40751.jpg') %>)">
     <h1><%= @goal.name %></h1>
-    <p><%=  @goal.description %></p>
-    <p><%=  @goal.start_date %></p>
-    <p><%=  @goal.end_date %></p>
-</div>
+    <%# <p><%=  @goal.description %>
+    <%# <p>start:<%=  @goal.start_date %>
+    <%# <p>finish:<%=  @goal.end_date %>
+  
+  <%# <h1>Tasks</h1> %>
+    <%# <% @tasks.each do |task| %> 
+      <%# <li><%= task.description %>
+      <%# </li> %> 
+    <%# <% end %> 
+  <%# <%= link_to "Add Task", new_goal_task_path(@goal) %> 
+<%# </div> %>
+
+<h1><%= @goal.name %></h1>
+
+    <h2>Tasks</h2>
+<% @tasks.each do |task| %>
+  <%= simple_form_for task do |f| %>
+   
+      <%# <% @tasks.each_with_index do |step, index| %>
+        
+          <%# <%= f.label :completed, "Step #{index + 1}" %>
+          <%= task.description %> <%= f.input :completed, { multiple: true, as: :check_boxes } %> <!-- Display step description -->
+          
+        
+      <%# <% end %>
+   
+
+    <%= f.submit "Submit" %>
+  <% end %>
+ <% end %> 
