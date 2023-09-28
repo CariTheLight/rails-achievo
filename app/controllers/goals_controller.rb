@@ -3,6 +3,19 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
   end
 
+  def home
+    @goal = Goal.new(
+      name: '',
+      description: '',
+      start_date: Date.current,
+      end_date: Date.current,
+      status: '',
+      resources: '',
+      time_available: '',
+      user_id: current_user.id
+    )
+  end
+
   def new
     # @user = current_user
     @goal = current_user.goals.build
