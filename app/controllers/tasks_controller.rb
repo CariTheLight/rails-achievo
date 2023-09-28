@@ -1,17 +1,19 @@
 class TasksController < ApplicationController
+  before_action :find_goal
+
   def new
     @goal = Goal.find(params[:goal_id])
     @task = Task.new
   end
 
   def create
-    @task = Task.new(task_params)
     @goal = Goal.find(params[:goal_id])
-    @task.goal = @goal
+    @task = @goal.tasks.new(task_params)
+
     if @task.save
-      redirect_to goal_path(@goal), notice: 'Task was successfully created.'
+      redirect_to goal_path(@goal), notice: "Task was successfully created!"
     else
-      render :new, alert: :unprocessable_entity
+      redirect_to goal_path(@goal), alert: "Error creating the task."
     end
   end
 
@@ -38,6 +40,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:description, :name)
   end
 end
