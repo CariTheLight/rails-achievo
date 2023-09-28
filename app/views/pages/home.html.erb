@@ -1,19 +1,20 @@
-
+<%#
 <!-- app/views/pages/home.html.erb -->
-<h1>Welcome to achievo</h1>
+<%# <h1>Welcome to achievo</h1>
 
-<form action="<%= root_path %>">
-  <textarea rows="5" cols="33" name="prompt"></textarea>
+<form action="<%= root_path %>
+  <%# <textarea rows="5" cols="33" name="prompt"></textarea>
   <input type="submit" class="btn btn-primary">
-</form>
-
-<div id="response">
+</form> %>
+<%# <div id="response">
   <% if @tasks.present? %>
-    <h2>Tasks to Complete:</h2>
+    <%# <h2>Tasks to Complete:</h2>
     <ul>
       <% @tasks.each_with_index do |task, index| %>
-        <li><strong>Day <%= index + 1 %>:</strong> <%= task.strip %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
+        <%# <li><strong>Day <%= index + 1 %>
+        <%# :</strong> <%= task.strip %>
+        <%# </li>  %>
+      <%# <% end %>
+    <%# </ul> %>
+  <%# <% end %>
+<%# </div> %>
