@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_27_124716) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_09_28_122252) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -72,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_27_124716) do
 
   add_foreign_key "goals", "users"
   add_foreign_key "journals", "goals"
-  add_foreign_key "reminders", "tasks"
+  add_foreign_key "reminders", "tasks", on_delete: :cascade
   add_foreign_key "reminders", "users"
   add_foreign_key "tasks", "goals"
 end
