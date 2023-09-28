@@ -1,2 +1,8 @@
-<h1>Goals#edit</h1>
-<p>Find me in app/views/goals/edit.html.erb</p>
+<div class="container mx-10">
+<%# <% raise %> 
+  <%= simple_form_for [@goal] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.submit "Submit goal", class: "btn btn-primary" %>
+  <% end %>
+</div>

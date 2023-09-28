@@ -37,7 +37,7 @@ class GoalsController < ApplicationController
     Additionally, I've allocated #{goal.time_available} to dedicate towards
     making this goal a reality. Please give me a step breakdown
     of what I need to do to achieve my goal by the end of the
-    specified date. Please also label each step with a day of the week and a date. 
+    specified date. Please also label each step with a day of the week and a date.
     Please return this information as an array of tasks"
 
   end
@@ -60,8 +60,9 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
+    # raise
     if @goal.update(goal_params)
-      redirect_to @goal, notice: "Goal was succesfully updated."
+      redirect_to goal_path(@goal), notice: "Goal was succesfully updated."
     else
       render :edit
     end
@@ -76,12 +77,6 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goals).permit(:name, :description)#, :start_date, :end_date, :status, :resources, :time_available)
-  end
-  
-  private
-
-  def goal_params
-    params.require(:goals).permit(:name, :description, :start_date, :end_date, :status, :resources, :time_available, :user_id)
+    params.require(:goal).permit(:name, :description)#, :start_date, :end_date, :status, :resources, :time_available)
   end
 end

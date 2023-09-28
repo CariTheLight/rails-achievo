@@ -7,12 +7,38 @@
     <p>end: <%= @goal.end_date %></p>
   </div>
 
-  <div class="btn btn-primary">
+  <%# <div class="btn btn-primary">
     <%= link_to "edit", goal_path(@goal) %>
-  </div>
+  <%# </div> %>
 
-  <div class="btn btn-primary">
+  <div class=" mb-5">
     <%= link_to "delete", goal_path(@goal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}  %>
   </div>
 
+  <div class="mb-5">
+    <%= link_to "Edit", edit_goal_path(@goal) %>
+  </div>
+
+  <%# <div class="container">
+      <h1><%= @goal.name %>
+      <%# </h1> %>
+      <%# <p><%=  @goal.description %>
+      <%# </p> %>
+      <%# <p>start:<%=  @goal.start_date %>
+      <%# </p> %>
+      <%# <p>finish:<%=  @goal.end_date %>
+      <%# </p> %>
+    <h1>Tasks</h1>
+    <ol>
+      <% @tasks.each do |task| %>
+        <li><%= task.name %></li>
+        <p><%= task.description %></p>
+        <%= link_to "Edit Task", edit_task_path(task) %>
+        <%= link_to "Delete",
+        task_path(task),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+      <% end %>
+    </ol>
+    <div class="mb-5"><%= link_to "Add Task", new_goal_task_path(@goal) %></div>
 </div>
