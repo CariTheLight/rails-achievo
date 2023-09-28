@@ -1,20 +1,19 @@
 <%# <h1>Goals#new</h1>
 <p>Find me in app/views/goals/new.html.erb</p> %>
 
+<div class="container mx-10">
+  <%= simple_form_for(@goal) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :name, label: "Name of the goal" %>
+      <%= f.input :description, label: "Please describe your goal.", as: :text %>
+      <%# <%= f.input :start_date, label: "Starting date"%>
+      <%# <%= f.input :end_date, label: "End date" %> 
+      <input type="hidden" name="user_id" value="user_id">
+    </div>
 
-<%= simple_form_for(@goal) do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :name, label: "What is the name of your goal?" %>
-    <%= f.input :description, label: "Please describe your goal.", as: :text %>
-    <%= f.input :start_date, label: "When do you want to start your goal? (Please add a date in this format: Wednesday 27 September 2023)"%>
-    <%= f.input :end_date, label: "When do you want to complete your goal? (Please add a date in this format: Wednesday 27 September 2023)" %>
-    <%= f.input :status, label: "Please describe the status or progress you have made so far towards achieving your goal." %>
-    <%= f.input :resources, label: "Please list any tools, materials, or support you have at your disposal to help you achieve this goal." %>
-    <%= f.input :time_available, label: "Please describe the amount of time you have for your goal per day, week, month, or year." %>
-    <input type="hidden" name="user_id" value="user_id">
-  </div>
-  <div class="form-actions">
-    <%= f.submit "Submit answers", class: "btn btn-primary" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.submit "Start your journey", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

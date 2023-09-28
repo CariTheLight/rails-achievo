@@ -37,9 +37,9 @@ class GoalsController < ApplicationController
   end
 
   def create
+    # raise
     @goal = Goal.new(goal_params)
-    @goal.user_id = current_user.id
-
+    @goal.user = current_user
     if @goal.save!
       redirect_to goal_path(@goal), notice: "Goal was successfully created!"
     else
@@ -63,11 +63,12 @@ class GoalsController < ApplicationController
   def destroy
     @goal = Goal.find(params[:id])
     @goal.destroy
-    redirect_to goals_url, notice: "Goal was succesfully deleted"
+    redirect_to root_path, notice: "Goal was succesfully deleted"
   end
 
   private
+
   def goal_params
-    params.require(:goals).permit(:name, :description, :start_date, :end_date, :status, :resources, :time_available, :user_id)
+    params.require(:goals).permit(:name, :description)#, :start_date, :end_date, :status, :resources, :time_available)
   end
 end
