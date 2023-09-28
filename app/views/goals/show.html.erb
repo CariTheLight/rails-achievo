@@ -1,10 +1,9 @@
 <div class="container">
-  <%# <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>
     <h1><%= @goal.name %></h1>
     <p><%=  @goal.description %></p>
     <p>start:<%=  @goal.start_date %></p>
     <p>finish:<%=  @goal.end_date %></p>
-  <%# </div> %>
+
   <h1>Tasks</h1>
   <ol>
     <% @tasks.each do |task| %>
