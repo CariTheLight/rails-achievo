@@ -9,31 +9,12 @@
 <%# end %>-->
 <!--
 <div id="response">
-  <%# if @tasks.present? %>-->
-<!--    <h2>Tasks Breakdown:</h2>-->
-    <%# @tasks.each do |task| %>
-<!--    <p><%#= task.description %></p>-->
-        <%# end %>
-    <%# end %>
-<!--</div>-->
-
-
-<%= form_tag('/submit_prompt', method: 'post') do %>
-  <!-- Input fields from simple_form_for -->
-  <%= text_field_tag "goal[name]", @goal.name, placeholder: "What is the name of your goal?" %>
-  <%= text_area_tag "goal[description]", @goal.description, placeholder: "Please describe your goal." %>
-  <%= text_field_tag "goal[start_date]", @goal.start_date, placeholder: "When do you want to start your goal?" %>
-  <%= text_field_tag "goal[end_date]", @goal.end_date, placeholder: "When do you want to complete your goal?" %>
-  <%= text_area_tag "goal[status]", @goal.status, placeholder: "Please describe the status or progress you have made so far towards achieving your goal." %>
-  <%= text_area_tag "goal[resources]", @goal.resources, placeholder: "Please list any tools, materials, or support you have at your disposal to help you achieve this goal." %>
-  <%= text_area_tag "goal[time_available]", @goal.time_available, placeholder: "Please describe the amount of time you have for your goal per day, week, month, or year." %>
-  <%= hidden_field_tag "goal[user_id]", @goal.user_id %>
-
-  <!-- Additional input fields for your form -->
-  <textarea rows="5" cols="33" name="prompt"></textarea>
-  <label for="start_date">Start Date:</label>
-  <input type="date" id="start_date" name="start_date">
-  <label for="end_date">End Date:</label>
-  <input type="date" id="end_date" name="end_date">
-  <input type="submit" class="btn btn-primary">
-<% end %>
+  <% if @tasks.present? %>
+    <h2>Tasks to Complete:</h2>
+    <ul>
+      <% @tasks.each_with_index do |task, index| %>
+        <li><strong>Day <%= index + 1 %>:</strong> <%= task.strip %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
