@@ -1,4 +1,8 @@
 class GoalsController < ApplicationController
+  def index
+    @goals = Goal.all
+  end
+
   def show
     @goal = Goal.find(params[:id])
     @tasks = @goal.tasks
@@ -25,6 +29,7 @@ class GoalsController < ApplicationController
     end
   end
 
+
   def generate_task_description(goal)
     "My goal is to #{goal.description}.
     I want to start on #{goal.start_date.strftime('%A %d %B %Y')} and I want to end on #{goal.end_datestrftime('%A %d %B %Y')}.
@@ -34,13 +39,14 @@ class GoalsController < ApplicationController
     of what I need to do to achieve my goal by the end of the
     specified date. Please also label each step with a day of the week and a date. 
     Please return this information as an array of tasks"
+
   end
 
 
   def create
+    # raise
     @goal = Goal.new(goal_params)
-    @goal.user_id = current_user.id
-
+    @goal.user = current_user
     if @goal.save!
       redirect_to goal_path(@goal), notice: "Goal was successfully created!"
     else
@@ -64,7 +70,13 @@ class GoalsController < ApplicationController
   def destroy
     @goal = Goal.find(params[:id])
     @goal.destroy
-    redirect_to goals_url, notice: "Goal was succesfully deleted"
+    redirect_to root_path, notice: "Goal was succesfully deleted"
+  end
+
+  private
+
+  def goal_params
+    params.require(:goals).permit(:name, :description)#, :start_date, :end_date, :status, :resources, :time_available)
   end
   
   private
