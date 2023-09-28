@@ -1,2 +1,6 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+
+<%= simple_form_for [@goal, @task] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.submit "Submit task", class: "btn btn-primary" %>
+<% end %>

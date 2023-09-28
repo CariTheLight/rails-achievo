@@ -1,4 +1,8 @@
 class GoalsController < ApplicationController
+  def index
+    @goals = Goal.all
+  end
+
   def show
     @goal = Goal.find(params[:id])
     @tasks = @goal.tasks
@@ -28,6 +32,7 @@ class GoalsController < ApplicationController
  
 
   def create
+    # raise
     @goal = Goal.new(goal_params)
     @goal.user = current_user
     if @goal.save! && @goal.generate_tasks
@@ -56,9 +61,9 @@ class GoalsController < ApplicationController
   def destroy
     @goal = Goal.find(params[:id])
     @goal.destroy
-    redirect_to goals_url, notice: "Goal was succesfully deleted"
+    redirect_to root_path, notice: "Goal was succesfully deleted"
   end
-  
+
   private
 
   def goal_params
