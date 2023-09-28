@@ -2,15 +2,14 @@
 
 <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('pexels-pixabay-40751.jpg') %>)">
     <h1><%= @goal.name %></h1>
-    <p><%=  @goal.description %></p>
-    <p>start:<%=  @goal.start_date %></p>
-    <p>finish:<%=  @goal.end_date %></p>
+<!--   <p><%#=  @goal.description %></p>
+    <p>start:<%#=  @goal.start_date %></p>
+    <p>finish:<%#=  @goal.end_date %></p>-->
   <%# </div> %>
   <h1>Tasks</h1>
   <ol>
     <% @tasks.each do |task| %>
       <li><%= task.name %></li>
-      <p><%= task.description %></p>
     <% end %>
   </ol>
   <%= link_to "Add Task", new_goal_task_path(@goal) %>

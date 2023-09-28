@@ -20,13 +20,13 @@ class Goal < ApplicationRecord
   #   render :home
   # end
 
-  def submit_prompt
+  def submit_prompt(goal)
     # Get the user's goal
-    @goal = current_user.goals.find(params[:id])
-    @goal.submit_prompt
+    # @goal = current_user.goals.find(params[:id])
+    # @goal.submit_prompt
 
     # Generate a task description based on the user's goal
-    task_description = generate_task_description(@goal)
+    task_description = generate_tasks_prompt(@goal)
 
     # Use the OpenaiService to generate a response
     response = OpenaiService.new(task_description).call
@@ -41,5 +41,4 @@ class Goal < ApplicationRecord
       render :new
     end
   end
-
 end

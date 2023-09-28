@@ -1,20 +1,42 @@
+<h2>Motivational Quotes</h2>
 
- app/views/pages/home.html.erb
-<!--
-<h1>Welcome to Achievo</h1>
 
-<%#= form_tag('/submit_prompt', method: 'post') do %>-->
-<!--  <textarea rows="5" cols="33" name="prompt"></textarea>
-  <input type="submit" class="btn btn-primary">
-<%# end %>-->
-<!--
-<div id="response">
-  <% if @tasks.present? %>
-    <h2>Tasks to Complete:</h2>
-    <ul>
-      <% @tasks.each_with_index do |task, index| %>
-        <li><strong>Day <%= index + 1 %>:</strong> <%= task.strip %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<div data-controller="quote-rotation" data-quotes="<%= raw @quotes.to_json %>">
+  <p data-quote-target="quote"></p>
 </div>
+
+<p><%= @quotes.first.class %></p>
+
+<ul id="quote-list">
+  <% @quotes.each do |quote| %>
+    <li><%= quote %></li>
+  <% end %>
+</ul>
+
+<!--<ul id="quote-list">-->
+  <%# @quotes.each do |quote| %>
+<!--    <li><%#= quote.text %></li>-->
+  <%# end %>
+<!--</ul>-->
+
+<!--<script>
+  // Function to fetch and display new quotes
+  function updateQuotes() {
+    $.ajax({
+      url: '/home/random_quotes',
+      type: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        // Replace the content of the quote-list with the new quotes
+        var quoteList = $('#quote-list');
+        quoteList.empty();
+        data.quotes.forEach(function(quoteText) {
+          quoteList.append('<li>' + quoteText + '</li>');
+        });
+      }
+    });
+  }
+
+  // Periodically update quotes every 5 seconds
+  setInterval(updateQuotes, 5000); // 5000 milliseconds = 5 seconds
+</script>-->
