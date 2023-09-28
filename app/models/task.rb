@@ -3,4 +3,5 @@ class Task < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  has_many :reminders, dependent: :delete_all
 end

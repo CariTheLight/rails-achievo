@@ -1,44 +1,52 @@
 class GoalsController < ApplicationController
+  def index
+    @goals = Goal.all
+  end
+
   def show
     @goal = Goal.find(params[:id])
     @tasks = @goal.tasks
   end
 
-  def generate_goal
+  def new
+    # @user = current_user
+    @goal = current_user.goals.build
+  end
+
+  def generate_task
     # Use an AI model or service to generate a goal prompt
-    goal_description = generate_goal_description
+    @goal = current_user.goals.find(params[:goal_id])
+    task_description = generate_task_description(@goal)
 
-    # Create a new goal with the generated description
-    @goal = Goal.new(description: goal_description)
+    # Create a new task with the generated description
+    @task = @goal.tasks.build(description: task_description)
 
-    if @goal.save
-      redirect_to @goal, notice: 'New goal generated successfully!'
+    if @task.save
+      redirect_to @goal, notice: 'New task generated successfully!'
     else
-      flash.now[:alert] = 'Error generating the goal.'
+      flash.now[:alert] = 'Error generating the task.'
       render :new
     end
   end
 
-  private
 
-  # Example method to generate a goal description using an AI service
-  def generate_goal_description
-    # You can call an AI service here to generate a goal description
-    # For instance, using an API request to a language model
-    # Replace this with the actual logic to generate a goal description
-    # You might use an external service or your own AI model integration
-    # For simplicity, we'll use a placeholder description here
-    "Learn a new language and become conversational."
+  def generate_task_description(goal)
+    "My goal is to #{goal.description}.
+    I want to start on #{goal.start_date.strftime('%A %d %B %Y')} and I want to end on #{goal.end_datestrftime('%A %d %B %Y')}.
+    I have access to #{goal.resources}.
+    Additionally, I've allocated #{goal.time_available} to dedicate towards
+    making this goal a reality. Please give me a step breakdown
+    of what I need to do to achieve my goal by the end of the
+    specified date. Please also label each step with a day of the week and a date. 
+    Please return this information as an array of tasks"
+
   end
 
-  def new
-    @goal = Goal.new
-  end
 
   def create
+    # raise
     @goal = Goal.new(goal_params)
-    @goal.user_id = current_user.id
-
+    @goal.user = current_user
     if @goal.save!
       redirect_to goal_path(@goal), notice: "Goal was successfully created!"
     else
@@ -62,6 +70,18 @@ class GoalsController < ApplicationController
   def destroy
     @goal = Goal.find(params[:id])
     @goal.destroy
-    redirect_to goals_url, notice: "Goal was succesfully deleted"
+    redirect_to root_path, notice: "Goal was succesfully deleted"
+  end
+
+  private
+
+  def goal_params
+    params.require(:goals).permit(:name, :description)#, :start_date, :end_date, :status, :resources, :time_available)
+  end
+  
+  private
+
+  def goal_params
+    params.require(:goals).permit(:name, :description, :start_date, :end_date, :status, :resources, :time_available, :user_id)
   end
 end
