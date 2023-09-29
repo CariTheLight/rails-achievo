@@ -2,16 +2,10 @@
 <h2>Motivational Quotes</h2>
 
 
-<div data-controller="quote-rotation" data-quotes="<%= raw @quotes.to_json %>">
-  <p data-quote-target="quote"></p>
+<div data-controller="quote-rotation" data-quote-rotation-quotes-value="<%= @quotes.to_json %>">
+  <p data-quote-rotation-target="quote"></p>
 </div>
 
-#
-<ul id="quote-list">
-  <% @quotes.each do |quote| %>
-    <li><%= quote %></li>
-  <% end %>
-</ul>
 
 <!--<ul id="quote-list">-->
   <%# @quotes.each do |quote| %>
@@ -35,9 +29,8 @@
         });
       }
     });
-  }
+  }}
 
   // Periodically update quotes every 5 seconds
   setInterval(updateQuotes, 5000); // 5000 milliseconds = 5 seconds
 </script>-->
-

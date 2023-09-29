@@ -1,27 +1,27 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="quote-rotation"
+// Connects to data-controller="string-display"
 export default class extends Controller {
   static targets = ["quote"];
+  static values = { quotes: Array };
 
   connect() {
-    console.log("hello ;)")
+    console.log("hello from quotes controller")
     this.index = 0;
-    this.quotes = JSON.parse(this.data.get("quotes"));
-
-    this.rotateQuote();
+    this.displayString();
+    this.interval = setInterval(this.changeString.bind(this), 5000);
   }
 
-  rotateQuote() {
-    if (this.index >= this.quotes.length) {
-      this.index = 0;
-    }
+  disconnect() {
+    clearInterval(this.interval);
+  }
 
-    this.quoteTarget.textContent = this.quotes[this.index];
-    this.index++;
+  displayString() {
+    this.quoteTarget.textContent = this.quotesValue[this.index];
+  }
 
-    setTimeout(() => {
-      this.rotateQuote();
-    }, 5000); // Rotate every 5 seconds
+  changeString() {
+    this.index = (this.index + 1) % this.quotesValue.length;
+    this.displayString();
   }
 }
