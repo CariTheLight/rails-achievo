@@ -2,10 +2,11 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    if params[:prompt]
-      prompt = params[:prompt]
-      @response = OpenaiService.new(prompt).call
-    end
+    @goals = Goal.all
+    # if params[:prompt]
+    #   prompt = params[:prompt]
+    #   @response = OpenaiService.new(prompt).call
+    # end
   end
 
   # def submit_prompt

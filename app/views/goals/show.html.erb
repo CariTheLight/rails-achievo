@@ -39,23 +39,21 @@
                 <%# <%= f.label :completed, "Step #{index + 1}" %>
             <%# <% end %>
 
-<div class="container">
+<div class="container m-5 ">
     <h1><%= @goal.name %></h1>
     <p><%=  @goal.description %></p>
     <p>start:<%=  @goal.start_date %></p>
     <p>finish:<%=  @goal.end_date %></p>
+
   <h1>Tasks</h1>
-  <ol>
+    <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-secondary text-decoration-none text-white" %>
     <% @tasks.each do |task| %>
-      <li><%= task.name %></li>
+      <%= task.name %>
       <p><%= task.description %></p>
-      <div></div>
-      <%= link_to "Edit", edit_task_path(task) %>
-      <%= link_to "Delete",
-      task_path(task),
-      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-      %>
-    <% end %>
-  </ol>
-  <div class="btn btn-primary"><%= link_to "Add Task", new_goal_task_path(@goal) %></div>
+        <%= link_to "Edit", edit_task_path(task), class: "btn btn-secondary text-decoration-none text-white" %>
+        <%= link_to "Delete",
+        task_path(task), class: "btn btn-secondary text-decoration-none text-white",
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
+        <% end %>
 </div>
