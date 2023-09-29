@@ -7,7 +7,7 @@ puts "Destroying all goals"
 User.destroy_all
 puts "Destroying all users"
 MotivationalQuote.destroy_all
-puts "Destroying all quotes
+puts "Destroying all quotes"
 
 # Create fake users
 tasks_names = ["Run 2 min on the spot", "Drink 1L by noon", "Run for an hour"]
