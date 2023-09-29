@@ -1,20 +1,40 @@
 
-<!-- app/views/pages/home.html.erb -->
-<%# <h1>Welcome to achievo</h1>
 
-<form action="<%= root_path %>
-  <%# <textarea rows="5" cols="33" name="prompt"></textarea>
-  <input type="submit" class="btn btn-primary">
-</form>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg);">
 
-<div id="response">
-  <% if @tasks.present? %>
-    <%# <h2>Tasks to Complete:</h2>
-    <ul>
-      <% @tasks.each_with_index do |task, index| %>
-        <%# <li><strong>Day <%= index + 1 %>
-        <%# :</strong> <%= task.strip</li> %>
-      <%# <% end %>
-    <%# </ul> %>
-  <%# <% end %>
-<%# </div> %>
+  <div class="container">
+
+    <div class="quote" data-controller="quote-rotation" data-quote-rotation-quotes-value="<%= @quotes.to_json %>">
+      <p data-quote-rotation-target="quote"></p></div>
+
+    </div>
+  </div>
+</div>
+<!--<ul id="quote-list">-->
+  <%# @quotes.each do |quote| %>
+<!--    <li><%#= quote.text %></li>-->
+  <%# end %>
+<!--</ul>-->
+
+<!--<script>
+  // Function to fetch and display new quotes
+  function updateQuotes() {
+    $.ajax({
+      url: '/home/random_quotes',
+      type: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        // Replace the content of the quote-list with the new quotes
+        var quoteList = $('#quote-list');
+        quoteList.empty();
+        data.quotes.forEach(function(quoteText) {
+          quoteList.append('<li>' + quoteText + '</li>');
+        });
+      }
+    });
+  }}
+
+  // Periodically update quotes every 5 seconds
+  setInterval(updateQuotes, 5000); // 5000 milliseconds = 5 seconds
+</script>-->
+

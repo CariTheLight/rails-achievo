@@ -6,6 +6,7 @@
         <%= image_tag "" %>
       <% end %>
 
+
       <% if user_signed_in? && !current_page?(controller: 'goals', action: 'new')%>
        <button class= "btn btn-secondary mx-3"> <%=link_to  "Create goal", new_goal_path, class: "nav-link " %></button>
         <div class="dropdown">
@@ -20,6 +21,7 @@
         </div>
       <% end %>
             <% if user_signed_in? %>
+
             <li class="no-bullets dropdown">
               <%= image_tag "account.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
