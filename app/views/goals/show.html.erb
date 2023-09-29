@@ -1,6 +1,6 @@
 
-
-<div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('pexels-pixabay-40751.jpg') %>)">
+<div class="container">
+  <div class="container-content">
     <h1><%= @goal.name %></h1>
 <!--   <p><%#=  @goal.description %></p>
     <p>start:<%#=  @goal.start_date %></p>
@@ -14,3 +14,4 @@
   </ol>
   <%= link_to "Add Task", new_goal_task_path(@goal) %>
 </div>
+
