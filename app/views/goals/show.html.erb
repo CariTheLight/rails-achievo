@@ -1,34 +1,61 @@
 
-<div class="container">
+<%# <div class="container mx-10">
   <div class="container-content">
-    <h1><%= @goal.name %></h1>
-    <%# <p><%=  @goal.description %>
-    <%# <p>start:<%=  @goal.start_date %>
-    <%# <p>finish:<%=  @goal.end_date %>
+    <h1><%= @goal.name %>
+     <%# <p><%= @goal.description %>
+     <%# <p>start: <%= @goal.start_date %>
+     <%# <p>finish:<%= @goal.end_date %>
+    <%# <div class="mt-3">
+      <%= link_to "edit", edit_goal_path(@goal) %>
+      <%# <%= link_to "Delete", new_goal_task_path(@goal) %>
+    <%# </div> %>
 
   <%# <h1>Tasks</h1> %>
     <%# <% @tasks.each do |task| %>
       <%# <li><%= task.description %>
       <%# </li> %>
     <%# <% end %>
-  <%# <%= link_to "Add Task", new_goal_task_path(@goal) %>
-<%# </div> %>
-
-<h1><%= @goal.name %></h1>
-
-    <h2>Tasks</h2>
-<% @tasks.each do |task| %>
-  <%= simple_form_for task do |f| %>
-
-      <%# <% @tasks.each_with_index do |step, index| %>
-
-          <%# <%= f.label :completed, "Step #{index + 1}" %>
-          <%= task.description %> <%= f.input :completed, { multiple: true, as: :check_boxes } %> <!-- Display step description -->
+  <%# </div> %>
 
 
-      <%# <% end %>
+    <%# <div class="mt-5">
+      <h2>Tasks</h2>
+        <%= link_to "Add Task", new_goal_task_path(@goal) %>
+      <%# <div class="mx-2">
+        <% @tasks.each do |task| %>
+          <%# <%= simple_form_for task do |f| %>
+            <%# <%= task.description %>
+            <%# <%= f.input :completed, { multiple: true, as: :check_boxes } %> <!-- Display step description -->
+          <%# <div class="ms-5">
+            <%= f.submit "Submit" %>
+          <%# </div>
+          <% end %>
+        <%# <% end %>
+      <%# </div>
+    </div>
+  </div> %>
+</div>
+            <%# <% @tasks.each_with_index do |step, index| %>
+                <%# <%= f.label :completed, "Step #{index + 1}" %>
+            <%# <% end %>
 
-
-    <%= f.submit "Submit" %>
-  <% end %>
- <% end %>
+<div class="container">
+    <h1><%= @goal.name %></h1>
+    <p><%=  @goal.description %></p>
+    <p>start:<%=  @goal.start_date %></p>
+    <p>finish:<%=  @goal.end_date %></p>
+  <h1>Tasks</h1>
+  <ol>
+    <% @tasks.each do |task| %>
+      <li><%= task.name %></li>
+      <p><%= task.description %></p>
+      <div></div>
+      <%= link_to "Edit", edit_task_path(task) %>
+      <%= link_to "Delete",
+      task_path(task),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    <% end %>
+  </ol>
+  <div class="btn btn-primary"><%= link_to "Add Task", new_goal_task_path(@goal) %></div>
+</div>

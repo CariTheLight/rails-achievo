@@ -68,10 +68,6 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-<<<<<<< HEAD
-    params.require(:goal).permit(:name, :description)#, :start_date, :end_date, :status, :resources, :time_available)
-=======
     params.require(:goal).permit(:name, :description, :start_date, :end_date, :resources, :time_available, :generate_tasks)
->>>>>>> master
   end
 end
