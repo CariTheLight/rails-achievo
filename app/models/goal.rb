@@ -1,9 +1,7 @@
 class Goal < ApplicationRecord
   belongs_to :user
   has_many :tasks
-  has_many :tasks, dependent: :delete_all
-
-
+  
   def self.submit_prompt(goal)
     
 
@@ -25,6 +23,7 @@ class Goal < ApplicationRecord
         flash.now[:alert] = 'Error generating the task.'
         render :new
       end
+
     end
-  end 
+  end
 end

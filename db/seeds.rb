@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# Clear existing data
-# Clear existing data
 Reminder.destroy_all
 puts "Destroying all reminders"
 Task.destroy_all
@@ -15,6 +6,9 @@ Goal.destroy_all
 puts "Destroying all goals"
 User.destroy_all
 puts "Destroying all users"
+MotivationalQuote.destroy_all
+puts "Destroying all quotes
+
 # Create fake users
 tasks_names = ["Run 2 min on the spot", "Drink 1L by noon", "Run for an hour"]
 reminder_names = ["Call the doctor", "Pay utility bills", "Finish the report"]
@@ -62,3 +56,23 @@ puts "Creating reminders"
   end
 end
 puts "Seeded database with #{User.count} users, #{Goal.count} goals, #{Task.count} tasks, and #{Reminder.count} reminders."
+
+puts "creating motivational quotes"
+
+quotes = [
+        "Distance brings perspective. - Justin Terblanche",
+        "Keep going, without fear. - Ricardo Nelumba",
+        "Team work makes the dream work. - Carine Rugorirwera",
+        "Dream big, start small. - Jenovi Wayela",
+        "For the light to shine brightly there must be darkness. - Jono Watkins",
+        "Fake til you make it! - Olivier Girardot",
+        "In war, victory does not come to the one who plays by the rules, but to the one who makes the rules and imposes them on the enemy. - Kiki Kennedy",
+        "Comparison is the theif of joy. - Justin Terblanche ",
+        "If you want to get better, do the things that no-one else wants to do. Do the things that no-one is even thinking about doing. - Sebastian Carr",
+        "In the morning, either you go back to bed to continue dreaming, or you get up to make your dreams come true. - Olivier Girardot"
+
+        ]
+
+quotes.each do |quote|
+  MotivationalQuote.create(text: quote)
+end

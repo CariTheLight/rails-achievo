@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   # before_action :find_goal
-  
+
   def new
     @goal = Goal.find(params[:goal_id])
     @task = Task.new
@@ -16,11 +16,11 @@ class TasksController < ApplicationController
       redirect_to goal_path(@goal), alert: "Error creating the task."
     end
   end
-  
+
   def edit
     @task = Task.find(params[:id])
   end
-  
+
   def update
     @task = Task.find(params[:id])
     @goal = @task.goal
@@ -30,13 +30,14 @@ class TasksController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-  
+
   def destroy
     @task = Task.find(params[:id])
     @goal = @task.goal
     @task.destroy
     redirect_to goal_path(@goal), status: :see_other
   end  
+
 
   private
 
