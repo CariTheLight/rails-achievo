@@ -5,6 +5,7 @@ User.destroy_all
 # Create fake users
 tasks_names = ["Run 2 min on the spot", "Drink 1L by noon", "Run for an hour"]
 reminder_names = ["Call the doctor", "Pay utility bills", "Finish the report"]
+# goal_names = ["Run a marathon", "Learn how to code", "Get fit"]
 userFirst = User.create!(
     email: "achievo@test.com",
     password: "password"
@@ -19,6 +20,7 @@ userFirst = User.create!(
   3.times do
     goal = Goal.create!(
       user: user,
+      name: Faker::Lorem.sentence(word_count: 4),  # name: goal_names.sample,
       description: Faker::Lorem.sentence(word_count: 4),
       start_date: Faker::Date.backward(days: 14),
       end_date: Faker::Date.forward(days: 14)

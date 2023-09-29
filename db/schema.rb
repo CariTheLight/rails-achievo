@@ -78,7 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_140634) do
 
   add_foreign_key "goals", "users"
   add_foreign_key "journals", "goals"
-  add_foreign_key "reminders", "tasks"
+  add_foreign_key "reminders", "tasks", on_delete: :cascade
   add_foreign_key "reminders", "users"
   add_foreign_key "tasks", "goals"
 end

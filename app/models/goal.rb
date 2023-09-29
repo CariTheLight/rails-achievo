@@ -20,7 +20,8 @@ class Goal < ApplicationRecord
   #   render :home
   # end
 
-  def submit_prompt(goal)
+
+  def self.submit_prompt(goal)
     # Get the user's goal
     # @goal = current_user.goals.find(params[:id])
     # @goal.submit_prompt
@@ -41,4 +42,4 @@ class Goal < ApplicationRecord
       render :new
     end
   end
-end
+

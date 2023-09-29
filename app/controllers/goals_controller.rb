@@ -1,4 +1,8 @@
 class GoalsController < ApplicationController
+  def index
+    @goals = Goal.all
+  end
+
   def show
     @goal = Goal.find(params[:id])
     @tasks = @goal.tasks
@@ -9,13 +13,13 @@ class GoalsController < ApplicationController
     @goal = current_user.goals.build
   end
 
-  def generate_task
-    # Use an AI model or service to generate a goal prompt
-    @goal = current_user.goals.find(params[:goal_id])
-    task_description = generate_task_description(@goal)
+  # def generate_task
+  #   # Use an AI model or service to generate a goal prompt
+  #   @goal = current_user.goals.find(params[:goal_id])
+  #   task_description = generate_task_description(@goal)
 
-    # Create a new task with the generated description
-    @task = @goal.tasks.build(description: task_description)
+  #   # Create a new task with the generated description
+  #   @task = @goal.tasks.build(description: task_description)
 
     if @task.save
       redirect_to @goal, notice: 'New task generated successfully!'
@@ -37,14 +41,19 @@ class GoalsController < ApplicationController
   end
 
 
-  def create
-    @goal = Goal.new(goal_params)
-    @goal.user_id = current_user.id
+ 
 
-    if @goal.save!
+  def create
+    # raise
+    @goal = Goal.new(goal_params)
+    @goal.user = current_user
+    if @goal.save! && @goal.generate_tasks
+      Goal.submit_prompt(@goal)
+      redirect_to goal_path(@goal), notice: "Goal and tasks were successfully created!"
+    elsif @goal.save! && !@goal.generate_tasks
       redirect_to goal_path(@goal), notice: "Goal was successfully created!"
     else
-      render :new, alert: "Please try again"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -64,12 +73,12 @@ class GoalsController < ApplicationController
   def destroy
     @goal = Goal.find(params[:id])
     @goal.destroy
-    redirect_to goals_url, notice: "Goal was succesfully deleted"
+    redirect_to root_path, notice: "Goal was succesfully deleted"
   end
 
   private
 
   def goal_params
-    params.require(:goals).permit(:name, :description, :start_date, :end_date, :status, :resources, :time_available, :user_id)
+    params.require(:goal).permit(:name, :description, :start_date, :end_date, :resources, :time_available, :generate_tasks)
   end
 end
