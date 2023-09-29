@@ -2,6 +2,8 @@ Reminder.destroy_all
 Task.destroy_all
 Goal.destroy_all
 User.destroy_all
+MotivationalQuote.destroy_all
+
 # Create fake users
 tasks_names = ["Run 2 min on the spot", "Drink 1L by noon", "Run for an hour"]
 reminder_names = ["Call the doctor", "Pay utility bills", "Finish the report"]
@@ -53,29 +55,17 @@ puts "Seeded database with #{User.count} users, #{Goal.count} goals, #{Task.coun
 puts "creating motivational quotes"
 
 quotes = [
-    "Procrastination is the art of keeping up with yesterday.- Don Marquis",
-    "Don't watch the clock; do what it does. Keep going.- Sam Levenson",
-    "The only way to do great work is to love what you do.- Steve Jobs",
-    "Success is stumbling from failure to failure with no loss of enthusiasm.- Winston S. Churchill",
-    "The road to success is dotted with many tempting parking spaces.- Will Rogers",
-    "Opportunities don't happen. You create them.- Chris Grosser",
-    "The harder you work for something, the greater you'll feel when you achieve it.- Unknown",
-    "You're never too old to set another goal or to dream a new dream.- C.S. Lewis",
-    "Success is not final, failure is not fatal: It is the courage to continue that counts.- Winston S. Churchill",
-    "The only place where success comes before work is in the dictionary.- Vidal Sassoon",
-    "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.- Christian D. Larson",
-    "It does not matter how slowly you go as long as you do not stop.- Confucius",
-    "The secret to getting ahead is getting started.- Mark Twain",
-    "Dream big and dare to fail.- Norman Vaughan",
-    "Life is what happens when you're busy making other plans.- John Lennon",
-    "The future belongs to those who believe in the beauty of their dreams.- Eleanor Roosevelt",
-    "The only thing that stands between you and your dream is the will to try and the belief that it is actually possible.- Joel Brown",
-    "The best way to predict the future is to create it.- Peter Drucker",
-    "Don't count the days, make the days count.- Muhammad Ali",
-    "The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it.- Jordan Belfort",
-    "Don't be afraid to give up the good to go for the great.- John D. Rockefeller",
-    "The elevator to success is out of order. You'll have to use the stairs... one step at a time.- Joe Girard",
-    "The more I want to get something done, the less I call it work.- Richard Bach",
+        "Distance brings perspective. - Justin Terblanche",
+        "Keep going, without fear. - Ricardo Nelumba",
+        "Team work makes the dream work. - Carine Rugorirwera",
+        "Dream big, start small. - Jenovi Wayela",
+        "For the light to shine brightly there must be darkness. - Jono Watkins",
+        "Fake til you make it! - Olivier Girardot",
+        "In war, victory does not come to the one who plays by the rules, but to the one who makes the rules and imposes them on the enemy. - Kiki Kennedy",
+        "Comparison is the theif of joy. - Justin Terblanche ",
+        "If you want to get better, do the things that no-one else wants to do. Do the things that no-one is even thinking about doing. - Sebastian Carr",
+        "In the morning, either you go back to bed to continue dreaming, or you get up to make your dreams come true. - Olivier Girardot"
+
         ]
 
 quotes.each do |quote|

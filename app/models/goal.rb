@@ -42,4 +42,4 @@ class Goal < ApplicationRecord
       render :new
     end
   end
-
+end
