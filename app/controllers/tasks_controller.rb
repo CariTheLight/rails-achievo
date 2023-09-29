@@ -8,8 +8,8 @@ class TasksController < ApplicationController
 
   def create
     @goal = Goal.find(params[:goal_id])
-    @task = @goal.tasks.new(task_params)
-
+    @task = Task.new(task_params)
+    @task.goal = @goal
     if @task.save
       redirect_to goal_path(@goal), notice: "Task was successfully created!"
     else
@@ -33,13 +33,14 @@ class TasksController < ApplicationController
   
   def destroy
     @task = Task.find(params[:id])
+    @goal = @task.goal
     @task.destroy
-    redirect_to goal_path(@task.goal), status: :see_other
+    redirect_to goal_path(@goal), status: :see_other
   end  
 
   private
 
   def task_params
-    params.require(:task).permit(:description, :name)
+    params.require(:task).permit(:description, :name, :completed)
   end
 end

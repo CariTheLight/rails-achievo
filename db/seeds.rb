@@ -8,9 +8,13 @@
 # Clear existing data
 # Clear existing data
 Reminder.destroy_all
+puts "Destroying all reminders"
 Task.destroy_all
+puts "Destroying all tasks"
 Goal.destroy_all
+puts "Destroying all goals"
 User.destroy_all
+puts "Destroying all users"
 # Create fake users
 tasks_names = ["Run 2 min on the spot", "Drink 1L by noon", "Run for an hour"]
 reminder_names = ["Call the doctor", "Pay utility bills", "Finish the report"]
@@ -24,7 +28,7 @@ userFirst = User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password
   )
-  puts "Creating users"
+puts "Creating users"
   # Create fake goals for each user
   3.times do
     goal = Goal.create!(
@@ -34,7 +38,7 @@ userFirst = User.create!(
       start_date: Faker::Date.backward(days: 14),
       end_date: Faker::Date.forward(days: 14)
     )
-    puts "Creating goals"
+puts "Creating goals"
     last_task = nil  # Initialize this variable to keep track of the last task for each goal
     # Create fake tasks for each goal
     5.times do
@@ -44,7 +48,7 @@ userFirst = User.create!(
         description: Faker::Lorem.sentence(word_count: 3),
         completed: Faker::Boolean.boolean
       )
-      puts "Creating tasks"
+puts "Creating tasks"
     end
     # Create fake reminders for each user using the last task for each goal
     3.times do
@@ -54,7 +58,7 @@ userFirst = User.create!(
           name: reminder_names.sample
       )
     end
-    puts "Creating reminders"
+puts "Creating reminders"
   end
 end
 puts "Seeded database with #{User.count} users, #{Goal.count} goals, #{Task.count} tasks, and #{Reminder.count} reminders."

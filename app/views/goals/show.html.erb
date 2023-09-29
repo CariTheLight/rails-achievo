@@ -2,33 +2,21 @@
 <div class="container">
   <div class="container-content">
     <h1><%= @goal.name %></h1>
-    <%# <p><%=  @goal.description %>
-    <%# <p>start:<%=  @goal.start_date %>
-    <%# <p>finish:<%=  @goal.end_date %>
-  
-  <%# <h1>Tasks</h1> %>
-    <%# <% @tasks.each do |task| %> 
-      <%# <li><%= task.description %>
-      <%# </li> %> 
-    <%# <% end %> 
-  <%# <%= link_to "Add Task", new_goal_task_path(@goal) %> 
-<%# </div> %>
-
-<h1><%= @goal.name %></h1>
-
+    <h2><%= @goal.description %></h2>
     <h2>Tasks</h2>
-<% @tasks.each do |task| %>
-  <%= simple_form_for task do |f| %>
-   
-      <%# <% @tasks.each_with_index do |step, index| %>
-        
-          <%# <%= f.label :completed, "Step #{index + 1}" %>
-          <%= task.description %> <%= f.input :completed, { multiple: true, as: :check_boxes } %> <!-- Display step description -->
-          
-        
-      <%# <% end %>
-   
 
-    <%= f.submit "Submit" %>
-  <% end %>
- <% end %> 
+    <% @tasks.each do |task| %>
+      <div class="task-card my-3 py-3 border-top">
+        <%= task.description %> 
+        <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
+          <%# <%= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
+        
+          <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
+        <% end %>
+        <%= link_to "Edit", edit_task_path(task), class: "btn btn-success" %>
+        <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </div>
+    <% end %> 
+    <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-primary" %>
+  </div>
+</div>

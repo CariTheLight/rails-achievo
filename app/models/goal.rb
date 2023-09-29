@@ -3,6 +3,7 @@ class Goal < ApplicationRecord
   has_many :tasks
   has_many :tasks, dependent: :delete_all
 
+
   def self.submit_prompt(goal)
     # Get the user's goal
     # @goal = current_user.goals.find(params[:id])
@@ -25,7 +26,7 @@ class Goal < ApplicationRecord
     and I want to end on #{goal.end_date.strftime('%A %d %B %Y')}.
     I have access to #{goal.resources}.
     Additionally, I've allocated #{goal.time_available} towards
-    making this goal a reality. Please provide a list of numbered steps on each new line, to achieve this goal."
+    making this goal a reality. Please provide a list of steps in bullet form on each new line, to achieve this goal."
     # Each step should be on a new line and should be numbered.
     
     # Your prompt generation code here...
