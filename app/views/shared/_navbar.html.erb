@@ -5,7 +5,7 @@
       <%= link_to "#", class: "navbar-brand" do %>
         <%= image_tag "" %>
       <% end %>
-
+      <%= link_to "HOME", root_path%>
 
       <% if user_signed_in? && !current_page?(controller: 'goals', action: 'new')%>
        <button class= "btn btn-secondary mx-3"> <%=link_to  "Create goal", new_goal_path, class: "nav-link " %></button>
