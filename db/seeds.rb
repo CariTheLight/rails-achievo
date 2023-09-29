@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
-# Clear existing data
-# Clear existing data
 Reminder.destroy_all
 Task.destroy_all
 Goal.destroy_all
@@ -58,3 +49,35 @@ userFirst = User.create!(
   end
 end
 puts "Seeded database with #{User.count} users, #{Goal.count} goals, #{Task.count} tasks, and #{Reminder.count} reminders."
+
+puts "creating motivational quotes"
+
+quotes = [
+    "Procrastination is the art of keeping up with yesterday.- Don Marquis",
+    "Don't watch the clock; do what it does. Keep going.- Sam Levenson",
+    "The only way to do great work is to love what you do.- Steve Jobs",
+    "Success is stumbling from failure to failure with no loss of enthusiasm.- Winston S. Churchill",
+    "The road to success is dotted with many tempting parking spaces.- Will Rogers",
+    "Opportunities don't happen. You create them.- Chris Grosser",
+    "The harder you work for something, the greater you'll feel when you achieve it.- Unknown",
+    "You're never too old to set another goal or to dream a new dream.- C.S. Lewis",
+    "Success is not final, failure is not fatal: It is the courage to continue that counts.- Winston S. Churchill",
+    "The only place where success comes before work is in the dictionary.- Vidal Sassoon",
+    "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.- Christian D. Larson",
+    "It does not matter how slowly you go as long as you do not stop.- Confucius",
+    "The secret to getting ahead is getting started.- Mark Twain",
+    "Dream big and dare to fail.- Norman Vaughan",
+    "Life is what happens when you're busy making other plans.- John Lennon",
+    "The future belongs to those who believe in the beauty of their dreams.- Eleanor Roosevelt",
+    "The only thing that stands between you and your dream is the will to try and the belief that it is actually possible.- Joel Brown",
+    "The best way to predict the future is to create it.- Peter Drucker",
+    "Don't count the days, make the days count.- Muhammad Ali",
+    "The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it.- Jordan Belfort",
+    "Don't be afraid to give up the good to go for the great.- John D. Rockefeller",
+    "The elevator to success is out of order. You'll have to use the stairs... one step at a time.- Joe Girard",
+    "The more I want to get something done, the less I call it work.- Richard Bach",
+        ]
+
+quotes.each do |quote|
+  MotivationalQuote.create(text: quote)
+end
