@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     # @quotes = MotivationalQuote.all.shuffle.take(1)
-    @quotes = MotivationalQuote.all.map &:text
+    @quotes = MotivationalQuote.take(1).map &:text
   end
 
   # def random_quotes
