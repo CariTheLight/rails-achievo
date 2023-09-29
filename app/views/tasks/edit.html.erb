@@ -1,2 +1,7 @@
-<h1>Tasks#edit</h1>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+<div class="container mx-10">
+  <%= simple_form_for [@goal, @task] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.submit "Add task", class: "btn btn-primary" %>
+  <% end %>
+</div>
