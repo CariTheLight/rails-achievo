@@ -2,8 +2,15 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+
+    @goals = Goal.all
+    # if params[:prompt]
+    #   prompt = params[:prompt]
+    #   @response = OpenaiService.new(prompt).call
+    # end
     # @quotes = MotivationalQuote.all.shuffle.take(1)
     @quotes = MotivationalQuote.all.map &:text
+
   end
 
   # def random_quotes

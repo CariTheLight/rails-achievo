@@ -43,6 +43,7 @@ class GoalsController < ApplicationController
 
 
 
+
   def create
     # raise
     @goal = Goal.new(goal_params)
@@ -63,8 +64,9 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
+    # raise
     if @goal.update(goal_params)
-      redirect_to @goal, notice: "Goal was succesfully updated."
+      redirect_to goal_path(@goal), notice: "Goal was succesfully updated."
     else
       render :edit
     end

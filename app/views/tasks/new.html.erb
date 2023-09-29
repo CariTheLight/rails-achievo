@@ -1,5 +1,10 @@
-<%= simple_form_for [@goal, @task] do |f| %>
-  <%= f.input :description %>
-  <%= f.submit "Submit task", class: "btn btn-primary" %>
-<% end %>
+
+
+<div class="container mx-10">
+
+    <%= simple_form_for [@goal, @task] do |f| %>
+      <%= f.input :description %>
+      <%= f.submit "Submit task", class: "btn btn-primary" %>
+    <% end %>
+</div>
 
