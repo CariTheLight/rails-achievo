@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :find_goal
+  # before_action :find_goal
   
   def new
     @goal = Goal.find(params[:goal_id])
