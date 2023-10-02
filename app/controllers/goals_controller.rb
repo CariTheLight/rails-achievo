@@ -27,7 +27,7 @@ class GoalsController < ApplicationController
   #     flash.now[:alert] = 'Error generating the task.'
   #     render :new
   #   end
-  # end
+  # end  
 
 
 
