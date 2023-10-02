@@ -2,12 +2,10 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(https://images.pexels.com/photos/40751/running-runner-long-distance-fitness-40751.jpeg);">
 
+
   <div class="container">
-
-    <div class="quote" data-controller="quote-rotation" data-quote-rotation-quotes-value="<%= @quotes.to_json %>">
-      <p data-quote-rotation-target="quote"></p></div>
-
-    </div>
+      <div class="quote" data-controller="quote-rotation" data-quote-rotation-quotes-value="<%= @quotes.to_json %>">
+        <p data-quote-rotation-target="quote"></p></div>
   </div>
 </div>
 <!--<ul id="quote-list">-->
@@ -37,4 +35,3 @@
   // Periodically update quotes every 5 seconds
   setInterval(updateQuotes, 5000); // 5000 milliseconds = 5 seconds
 </script>-->
-

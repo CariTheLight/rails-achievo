@@ -1,0 +1,21 @@
+.progress {
+  width: 100%;
+  background-color: #ccc;
+  margin: auto;
+}
+
+.progress-bar {
+  height: 20px;
+  background-color: #007bff; /* Blue color for the progress bar */
+}
+
+.progress-group {
+  display: flex;
+  gap: 10px;
+
+}
+
+.tasks-space {
+  display: flex;
+  justify-content: space-between;
+}

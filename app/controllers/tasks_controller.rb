@@ -36,8 +36,17 @@ class TasksController < ApplicationController
     @goal = @task.goal
     @task.destroy
     redirect_to goal_path(@goal), status: :see_other
-  end  
+  end 
 
+  def complete
+    @task = Task.find(params[:id])
+    @task.update(completed: true, position: 1)
+  end
+
+  def uncomplete
+    @task = Task.find(params[:id])
+    @task.update(completed: false, position: -1)
+  end
 
   private
 
