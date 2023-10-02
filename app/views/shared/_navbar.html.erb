@@ -9,7 +9,7 @@
 
       <div class="d-flex">
       <% if user_signed_in? && !current_page?(controller: 'goals', action: 'new')%>
-      <button class= "btn btn-secondary mx-3"> <%=link_to  "Create goal", new_goal_path, class: "nav-link " %></button>
+      <button class= "btn btn-secondary mx-3"> <%=link_to  "Create Goal", new_goal_path, class: "nav-link " %></button>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle me-3 " type="button" data-bs-toggle="dropdown" aria-expanded="false">
             My Goals
@@ -40,3 +40,4 @@
     </div>
   </div>
 </div>
+<p></p>
