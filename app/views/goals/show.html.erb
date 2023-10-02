@@ -1,21 +1,61 @@
 
-<div class="container mx-10">
-    <h1><%= @goal.name %></h1>
-    <h2><%= @goal.description %></h2>
-    <h2>Tasks</h2>
+<%# <div class="container mx-10"> %>
+    <%# <h1><%= @goal.name %>
+    <%# </h1> %> 
+    <%# <h2><%= @goal.description %>
+    <%# </h2> %> 
+    <%# <h2>Tasks</h2> %>
 
-    <% @tasks.each do |task| %>
-      <div class="task-card my-3 py-3 border-top">
-        <%= task.description %> 
-        <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
+    <%# <% @tasks.each do |task| %> 
+      <%# <div class="task-card my-3 py-3 border-top"> %>
+        <%# <%= task.description %>  
+        <%# <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %> 
           <%# <%= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
         
+          <%# <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %> 
+        <%# <% end %> 
+        <%# <%= link_to "Edit", edit_task_path(task), class: "btn btn-success" %> 
+        <%# <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %> 
+      <%# </div> %>
+    <%# <% end %>  
+    <%# <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-primary" %> 
+
+<%# </div> %>
+
+<div class="container mx-10">
+  <h1><%= @goal.name %></h1>
+  <h2><%= @goal.description %></h2>
+  <h2>Tasks</h2>
+
+  <!-- Progress Bar -->
+  <div class="progress-group">
+    <div class="progress">
+      <div class="progress-bar" style="width: <%= @progress %>%;"></div>
+    </div>
+      <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
+  </div>
+
+  <!-- Task Cards -->
+  <div class="task-list">
+    <% @tasks.each do |task| %>
+      <div class="task-card my-3 py-3 border-top">
+        <div class="tasks-space">
+        <%= task.description %>
+
+        <!-- Task Completion Checkbox -->
+        <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
           <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
         <% end %>
+        </div>
+
         <%= link_to "Edit", edit_task_path(task), class: "btn btn-success" %>
-        <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       </div>
-    <% end %> 
-    <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-primary" %>
+    <% end %>
   </div>
+
+  <!-- Add Task Button -->
+  <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-primary" %>
 </div>
+
+
