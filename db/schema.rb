@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_02_144033) do
-  # These are extensions that must be enabled in order to support this database
+
+ActiveRecord::Schema[7.0].define(version: 2023_10_02_144358) do
+ # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "goals", force: :cascade do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_02_144033) do
     t.string "resources"
     t.string "time_available"
     t.boolean "generate_tasks"
+    t.integer "progress"
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
@@ -70,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_02_144033) do
     t.bigint "goal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order"
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 

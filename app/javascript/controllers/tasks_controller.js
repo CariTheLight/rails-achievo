@@ -25,6 +25,9 @@ export default class extends Controller {
       }
     });
   }
+
+}
+
 }
 
 // document.getElementById('celebrateButton').addEventListener('click', () => {
@@ -45,3 +48,4 @@ export default class extends Controller {
 
 //   confettiContainer.appendChild(confetti);
 // }
+
