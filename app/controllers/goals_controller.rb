@@ -21,7 +21,6 @@ class GoalsController < ApplicationController
     #   # Create a new task with the generated description
     #   @task = @goal.tasks.build(description: task_description)
 
-
   def generate_task_description(goal)
     "My goal is to #{goal.description}.
     I want to start on #{goal.start_date.strftime('%A %d %B %Y')} and I want to end on #{goal.end_datestrftime('%A %d %B %Y')}.
@@ -33,10 +32,7 @@ class GoalsController < ApplicationController
     Please return this information as an array of tasks"
   end
 
-
-
   def create
-    # raise
     @goal = Goal.new(goal_params)
     @goal.user = current_user
     if @goal.save! && @goal.generate_tasks
