@@ -6,6 +6,7 @@ class Goal < ApplicationRecord
   def self.submit_prompt(goal)
 
 
+  def self.submit_prompt(goal)
     task_description = "My goal is to #{goal.description}.
     I want to start on #{goal.start_date.strftime('%A %d %B %Y')}
     and I want to end on #{goal.end_date.strftime('%A %d %B %Y')}.
@@ -24,7 +25,6 @@ class Goal < ApplicationRecord
         flash.now[:alert] = 'Error generating the task.'
         render :new
       end
-
     end
   end
 end
