@@ -1,6 +1,10 @@
 class Goal < ApplicationRecord
   belongs_to :user
   has_many :tasks
+  has_many :journal_entries, through: :tasks
+
+  def self.submit_prompt(goal)
+
 
   def self.submit_prompt(goal)
     task_description = "My goal is to #{goal.description}.

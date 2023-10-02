@@ -21,13 +21,6 @@ class GoalsController < ApplicationController
     #   # Create a new task with the generated description
     #   @task = @goal.tasks.build(description: task_description)
 
-    if @task.save
-      redirect_to @goal, notice: 'New task generated successfully!'
-    else
-      flash.now[:alert] = 'Error generating the task.'
-      render :new
-    end
-  end
 
   def generate_task_description(goal)
     "My goal is to #{goal.description}.
