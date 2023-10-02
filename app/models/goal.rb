@@ -1,12 +1,13 @@
 class Goal < ApplicationRecord
   belongs_to :user
   has_many :tasks
-  
+  has_many :journal_entries, through: :tasks
+
   def self.submit_prompt(goal)
-    
+
 
     task_description = "My goal is to #{goal.description}.
-    I want to start on #{goal.start_date.strftime('%A %d %B %Y')} 
+    I want to start on #{goal.start_date.strftime('%A %d %B %Y')}
     and I want to end on #{goal.end_date.strftime('%A %d %B %Y')}.
     I have access to #{goal.resources}.
     Additionally, I've allocated #{goal.time_available} towards
@@ -16,7 +17,7 @@ class Goal < ApplicationRecord
     steps = response.split("\n")
     steps.each do |step|
       task = Task.new(description: step, goal_id: goal.id)
-  
+
       if task.save
         puts "Task saved successfully"
       else
