@@ -13,13 +13,13 @@ class GoalsController < ApplicationController
     @goal = current_user.goals.build
   end
 
-  # def generate_task
-  #   # Use an AI model or service to generate a goal prompt
-  #   @goal = current_user.goals.find(params[:goal_id])
-  #   task_description = generate_task_description(@goal)
+  def generate_task
+    #   # Use an AI model or service to generate a goal prompt
+    #   @goal = current_user.goals.find(params[:goal_id])
+    #   task_description = generate_task_description(@goal)
 
-  #   # Create a new task with the generated description
-  #   @task = @goal.tasks.build(description: task_description)
+    #   # Create a new task with the generated description
+    #   @task = @goal.tasks.build(description: task_description)
 
     if @task.save
       redirect_to @goal, notice: 'New task generated successfully!'
@@ -39,8 +39,6 @@ class GoalsController < ApplicationController
     specified date. Please also label each step with a day of the week and a date.
     Please return this information as an array of tasks"
   end
-
-
 
 
 
