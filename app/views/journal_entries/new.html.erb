@@ -1,0 +1,8 @@
+<h1>What's on your mind?</h1>
+
+<%= simple_form_for [@goal, @task, @journal_entry] do |f| %>
+  <%= f.input :entry_text %>
+  <%= f.input :entry_date, label: "Date", as: :date, html5: true %>
+  <%#= f.hidden_field :goal_id, value: @goal_id %>
+  <%= f.button :submit %>
+<% end %>
