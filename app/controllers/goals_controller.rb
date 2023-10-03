@@ -42,6 +42,7 @@ class GoalsController < ApplicationController
 
     #   # Create a new task with the generated description
     #   @task = @goal.tasks.build(description: task_description)
+  end
 
   def generate_task_description(goal)
     "My goal is to #{goal.description}.
@@ -53,7 +54,6 @@ class GoalsController < ApplicationController
     specified date. Please also label each step with a day of the week and a date.
     Please return this information as an array of tasks"
   end
-
 
   def create
     @goal = Goal.new(goal_params)
@@ -88,7 +88,6 @@ class GoalsController < ApplicationController
     redirect_to root_path, notice: "Goal was succesfully deleted"
   end
 
-  
   private
 
   def goal_params
