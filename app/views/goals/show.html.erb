@@ -98,7 +98,7 @@
 <div class="container mx-10">
     <h1><%= @goal.name %></h1>
     <h2><%= @goal.description %></h2>
-    <%= link_to "All Journal Entries", new_goal_task_journal_entry_path(@goal, task), class: "btn btn-success" %>
+    <%= link_to "All Journal Entries", goal_journal_entries_path(@goal), class: "btn btn-success" %>
 
     <h2>Tasks</h2>
 
@@ -128,6 +128,7 @@
         <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
       </div>
     <% end %>
+  <% end %>
 
 
     <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-primary" %>

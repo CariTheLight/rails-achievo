@@ -35,7 +35,7 @@ class GoalsController < ApplicationController
   #   Please return this information as an array of tasks"
   # end
 
-  def generate_task
+  # def generate_task
     #   # Use an AI model or service to generate a goal prompt
     #   @goal = current_user.goals.find(params[:goal_id])
     #   task_description = generate_task_description(@goal)
