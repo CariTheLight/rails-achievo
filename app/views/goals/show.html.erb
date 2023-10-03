@@ -75,13 +75,8 @@
             <%# <% @tasks.each_with_index do |step, index| %>
                 <%# <%= f.label :completed, "Step #{index + 1}" %>
             <%# <% end %>
-<div class="container card mx-auto rounded-5 mb-5">
+<div class="mx-auto rounded-5 mb-5">
   <div class="mx-5 mb-5">
-    <h1 class ="mt-5"><%= @goal.name %></h1>
-    <p><%=  @goal.description %></p>
-    <p>start:<%=  @goal.start_date %></p>
-    <p>finish:<%=  @goal.end_date %></p>
-
       <h1>Tasks</h1>
     <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn  btn-success text-decoration-none text-white" %>
     <% @tasks.each do |task| %>
