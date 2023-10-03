@@ -10,9 +10,9 @@
     </div>
       <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
   </div>
-
-    <a href="#", data-controller="confetti", data-action="click->confetti#spray">Star Avo</a>
-
+  <div class="confetti-container">
+    <div id="celebrate-button", data-controller="confetti">Star Avo</div>
+  </div>
   <!-- Task Cards -->
   <div class="task-list">
     <% @tasks.each do |task| %>
