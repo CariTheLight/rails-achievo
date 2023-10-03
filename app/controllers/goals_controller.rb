@@ -42,7 +42,7 @@ class GoalsController < ApplicationController
 
     #   # Create a new task with the generated description
     #   @task = @goal.tasks.build(description: task_description)
-  end
+  # end
 
   def generate_task_description(goal)
     "My goal is to #{goal.description}.
