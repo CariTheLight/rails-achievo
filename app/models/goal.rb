@@ -4,11 +4,6 @@ class Goal < ApplicationRecord
   has_many :journal_entries, through: :tasks
 
   def self.submit_prompt(goal)
-
-
-
-  def self.submit_prompt(goal)
-
     task_description = "My goal is to #{goal.description}.
     I want to start on #{goal.start_date.strftime('%A %d %B %Y')}
     and I want to end on #{goal.end_date.strftime('%A %d %B %Y')}.
@@ -33,14 +28,14 @@ class Goal < ApplicationRecord
   def update_progress
     total_tasks = tasks.count
     completed_tasks = tasks.where(completed: true).count
-    
+
     if total_tasks > 0
       progress = (completed_tasks.to_f/total_tasks)*100
     else
       progress = 0
     end
 
-   return progress
+    return progress
   end
 
   def complete
@@ -52,5 +47,4 @@ class Goal < ApplicationRecord
     @task = Task.find(params[:id])
     @task.update(completed: false, position: -1)
   end
-
 end

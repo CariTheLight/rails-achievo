@@ -2,16 +2,9 @@
 <div class ="p-3 mb-2 bg-transparent">
   <div class="navbar navbar-expand-sm navbar-lewagon">
     <div class="container-fluid ">
-
-      <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "" %>
-      <% end %>
-      <%= link_to "HOME", root_path, class: "btn btn-success"%>
-
-      <%= link_to "#" do %>
+      <%= link_to root_path do %>
         <%= image_tag "achievo.png",class: "logo" %>
       <% end %>
-
 
       <div class="d-flex">
       <% if user_signed_in? && !current_page?(controller: 'goals', action: 'new')%>
@@ -46,4 +39,3 @@
     </div>
   </div>
 </div>
-<p></p>
