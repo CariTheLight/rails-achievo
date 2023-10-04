@@ -15,7 +15,7 @@ class GoalsController < ApplicationController
     @uncompleted_tasks = @goal.tasks.where(completed: false).order(position: :asc)
   end
 
-  def new
+  def newb
     # @user = current_user
     @goal = current_user.goals.build
   end

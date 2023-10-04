@@ -1,11 +1,13 @@
-
-
-<div>
-  <% @journal_entries.each do |journal_entry|%>
-    <%= journal_entry.task.description %>
-    <%=journal_entry.entry_text  %>
-    <%=journal_entry.entry_date  %>
-    <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "btn btn-secondary" %>
-    <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <% end %>
+<div class="book" data-controller="journal" data-action="click->journal#flip">
+  <div id="pages" class="pages">
+    <div class="page">
+      <% @journal_entries.each do |journal_entry|%>
+        <%= journal_entry.task.description %>
+        <%=journal_entry.entry_text  %>
+        <%=journal_entry.entry_date  %>
+        <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "btn btn-secondary" %>
+        <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <% end %>
+    </div>
+  </div>
 </div>

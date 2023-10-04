@@ -28,7 +28,6 @@ export default class extends Controller {
 
 }
 
-}
 
 // document.getElementById('celebrateButton').addEventListener('click', () => {
 //   createConfetti();
@@ -48,4 +47,3 @@ export default class extends Controller {
 
 //   confettiContainer.appendChild(confetti);
 // }
-
