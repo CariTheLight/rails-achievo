@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+
+<div class="container mx-10">
+    <h1><%= @goal.name %></h1>
+    <h2><%= @goal.description %></h2>
+    <%= link_to "View All Journal Entries for: " +  @goal.name.upcase, goal_journal_entries_path(@goal), class: "btn btn-success" %>
+  </div>
+
+<div>
+    <h2>YOUR ROADMAP</h2>
+</div>
+
+<div>
+    <% @tasks.each_with_index do |task, index| %>
+=======
 <div class="container mx-auto rounded-5 mb-5">
 <div class="content mx-5 mb-3 pt-5">
   <h1><%= @goal.name %></h1>
@@ -13,19 +28,60 @@
   <!-- Task Cards -->
   <div class="task-list">
     <% @tasks.each do |task| %>
+>>>>>>> a9c3fc16b1219e98f056f595693de42864c64738
       <div class="task-card my-3 py-3 border-top">
         <div class="tasks-space">
         <%= task.description %>
+<<<<<<< HEAD
+        <%= link_to "Create Journal Entry", new_task_journal_entry_path(task), class: "btn btn-success" %>
+        <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
+          <%# <%= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
+
+          <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
+
+
+
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="<%= "#collapseExample#{index}" %>"aria-expanded="false" aria-controls="<%= "collapseExample#{index}" %>">
+            View Journal
+          </button>
+          <div class="collapse" id= "<%= "collapseExample#{index}" %>">
+            <% task.journal_entries.each do |journal_entry| %>
+              <div class="card card-body">
+                <%= journal_entry.entry_text %>
+                <%= journal_entry.entry_date %>
+
+                <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "btn btn-secondary" %>
+                <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              </div>
+            <% end %>
+          </div>
+          <br>
+          <br>
+
+=======
         <!-- Task Completion Checkbox -->
         <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
         <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
           <%# <%= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
         <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
+>>>>>>> a9c3fc16b1219e98f056f595693de42864c64738
         <% end %>
         </div>
         <%= link_to "Journal", new_goal_task_journal_entry_path(@goal, task), class: "btn btn-success" %>
         <%= link_to "Edit", edit_task_path(task), class: "btn btn-success" %>
+<<<<<<< HEAD
+
+        <br>
+        <br>
+        <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+
+
+
+
+
+=======
         <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+>>>>>>> a9c3fc16b1219e98f056f595693de42864c64738
       </div>
     <% end %>
   <% end %>
@@ -33,4 +89,10 @@
 
   </div>
 </div>
+<<<<<<< HEAD
+
+
+<!--goal_task_journal_entries_path(@goal, @task)-->
+=======
 </div>
+>>>>>>> a9c3fc16b1219e98f056f595693de42864c64738
