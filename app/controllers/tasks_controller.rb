@@ -10,6 +10,9 @@ class TasksController < ApplicationController
     @goal = Goal.find(params[:goal_id])
     @task = Task.new(task_params)
     @task.goal = @goal
+    @task.completed = false
+    count = @goal.tasks.count
+    @task.order = count + 1
     if @task.save
       redirect_to goal_path(@goal), notice: "Task was successfully created!"
     else
@@ -19,6 +22,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @goal = @task.goal
   end
 
   def update
@@ -40,12 +44,12 @@ class TasksController < ApplicationController
 
   def complete
     @task = Task.find(params[:id])
-    @task.update(completed: true, position: 1)
+    @task.update(completed: true)
   end
 
   def uncomplete
     @task = Task.find(params[:id])
-    @task.update(completed: false, position: -1)
+    @task.update(completed: false)
   end
 
   private

@@ -1,9 +1,14 @@
+<div <%= controller_name == 'pages' && action_name == 'home' ? 'class=navbar-transparent' : 'class=navbar-colored' %>>
+    <%= link_to root_path do %>
+      <%= image_tag "achievo.png",class: "logo" %>
+    <% end %>
 
-<div class ="p-3 mb-2 bg-transparent">
+
+<div class="p-3 mb-2 bg-transparent">
   <div class="navbar navbar-expand-sm navbar-lewagon">
-    <div class="container-fluid ">
+    <div class="container-fluid">
       <%= link_to root_path do %>
-        <%= image_tag "achievo.png",class: "logo" %>
+        <%= image_tag "achievo.png", class: "logo" %>
       <% end %>
 
       <div class="d-flex">
@@ -20,22 +25,22 @@
           </ul>
         </div>
       <% end %>
-            <% if user_signed_in? %>
+          
+        <% if user_signed_in? %>
+          <li class="no-bullets dropdown">
+            <%= image_tag "account.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
+            </div>
+          </li>
 
-            <li class="no-bullets dropdown">
-              <%= image_tag "account.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
       </div>
-    </div>
     </div>
   </div>
 </div>
