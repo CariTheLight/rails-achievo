@@ -70,7 +70,8 @@ quotes = [
         "Comparison is the theif of joy. - Justin Terblanche ",
         "If you want to get better, do the things that no-one else wants to do. Do the things that no-one is even thinking about doing. - Sebastian Carr",
         "In the morning, either you go back to bed to continue dreaming, or you get up to make your dreams come true. - Olivier Girardot",
-        "Don't be sleepwalking through life, set your goals, make them happen and watch as you create your best life ever. - Jenovi Wayela"
+        "Don't be sleepwalking through life, set your goals, make them happen and watch as you create your best life ever. - Jenovi Wayela",
+        "What is yours will find you if you make space for it. - Lisbeth Purrucker"
 
         ]
 
