@@ -12,9 +12,22 @@
     <div class="progress-group">
       <div class="progress">
         <div class="progress-bar" style="width: <%= @progress %>%;"></div>
-      </div>
-        <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
-    </div>
+  <%= link_to "View All Journal Entries for: " +  @goal.name.upcase, goal_journal_entries_path(@goal), class: "btn btn-success" %>
+      <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
+          <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="<%= "#collapseExample#{index}" %>"aria-expanded="false" aria-controls="<%= "collapseExample#{index}" %>">
+            View Journal
+          </button>
+          <div class="collapse" id= "<%= "collapseExample#{index}" %>">
+            <% task.journal_entries.each do |journal_entry| %>
+              <div class="card card-body">
+                <%= journal_entry.entry_text %>
+                <%= journal_entry.entry_date %>
+
+                <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "btn btn-secondary" %>
+                <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+              </div>
+            <% end %>
+          </div>
     <!-- Task Cards -->
     <div class="task-list">
       <%= render partial: "task_list", locals: {tasks: @uncompleted_tasks, goal: @goal} %>
