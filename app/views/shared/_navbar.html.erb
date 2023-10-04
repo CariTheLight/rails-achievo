@@ -1,3 +1,8 @@
+<div <%= controller_name == 'pages' && action_name == 'home' ? 'class=navbar-transparent' : 'class=navbar-colored' %>>
+    <%= link_to root_path do %>
+      <%= image_tag "achievo.png",class: "logo" %>
+    <% end %>
+
 
 <div class="p-3 mb-2 bg-transparent">
   <div class="navbar navbar-expand-sm navbar-lewagon">
@@ -21,11 +26,13 @@
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete } %>
             </div>
           </li>
+
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
+
       </div>
     </div>
   </div>
