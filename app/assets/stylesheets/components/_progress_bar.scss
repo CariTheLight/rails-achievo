@@ -1,12 +1,14 @@
 .progress {
   width: 100%;
-  background-color: #ccc;
+  background-color: #50544B;
   margin: auto;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .progress-bar {
   height: 20px;
-  background-color: #007bff; /* Blue color for the progress bar */
+  background-color: beige;
 }
 
 .progress-group {

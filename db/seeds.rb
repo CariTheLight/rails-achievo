@@ -1,11 +1,13 @@
-User.destroy_all
-puts "Destroying all users"
-Goal.destroy_all
-puts "Destroying all goals"
-Task.destroy_all
-puts "Destroying all tasks"
 Reminder.destroy_all
 puts "Destroying all reminders"
+JournalEntry.destroy_all
+puts "Destroying all journal entries"
+Task.destroy_all
+puts "Destroying all tasks"
+Goal.destroy_all
+puts "Destroying all goals"
+User.destroy_all
+puts "Destroying all users"
 MotivationalQuote.destroy_all
 puts "Destroying all quotes"
 

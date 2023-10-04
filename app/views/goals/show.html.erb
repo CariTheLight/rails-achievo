@@ -1,31 +1,19 @@
-<div class="container mx-auto rounded-5 mb-5">
-<div class="content mx-5 mb-3 pt-5">
-  <h1><%= @goal.name %></h1>
-  <h3><%= @goal.description %></h3>
-  <%= link_to "View All Journal Entries for: " +  @goal.name.upcase, goal_journal_entries_path(@goal), class: "btn btn-success" %>
-
-  <h2>Your Roadmap</h2>
-  <!-- Progress Bar -->
-  <div class="progress-group">
-    <div class="progress">
-      <div class="progress-bar" style="width: <%= @progress %>%;"></div>
-    </div>
-      <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
+<div class="container mx-auto rounded-5 mb-5 mt-5">
+  <div class="content mx-5 mb-3 pt-5 pb-3">
+      <div class='d-flex justify-content-between'>
+    <h1><%= @goal.name %></h1>
+    <%= link_to goal_path(@goal), class: 'close-btn' do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
   </div>
-  <!-- Task Cards -->
-  <div class="task-list">
-    <% @tasks.each_with_index do |task, index| %>
-      <div class="task-card my-3 py-3 border-top">
-        <div class="tasks-space">
-        <%= task.description %>
-        <%= link_to "Create Journal Entry", new_task_journal_entry_path(task), class: "btn btn-success" %>
-        <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
-          <%# <%= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
-
-          <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
-
-
-
+    <h3><%= @goal.description %></h3>
+    <h2>Tasks</h2>
+    <!-- Progress Bar -->
+    <div class="progress-group">
+      <div class="progress">
+        <div class="progress-bar" style="width: <%= @progress %>%;"></div>
+  <%= link_to "View All Journal Entries for: " +  @goal.name.upcase, goal_journal_entries_path(@goal), class: "btn btn-success" %>
+      <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="<%= "#collapseExample#{index}" %>"aria-expanded="false" aria-controls="<%= "collapseExample#{index}" %>">
             View Journal
           </button>
@@ -40,24 +28,13 @@
               </div>
             <% end %>
           </div>
-          <br>
-          <br>
-
-        <!-- Task Completion Checkbox -->
-        <%#= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
-        <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
-          <%# <%= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
-        <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
-        <% end %>
-        </div>
-        <%= link_to "Journal", new_task_journal_entry_path(task), class: "btn btn-success" %>
-        <%= link_to "Edit", edit_task_path(task), class: "btn btn-success" %>
-        <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    <!-- Task Cards -->
+    <div class="task-list">
+      <%= render partial: "task_list", locals: {tasks: @uncompleted_tasks, goal: @goal} %>
+      <%= render partial: "task_list", locals: {tasks: @completed_tasks, goal: @goal} %>
+      <div class="mt-4">
+      <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn" %>
       </div>
-    <% end %>
-  <% end %>
-    <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-primary" %>
-
+    </div>
   </div>
-</div>
 </div>

@@ -11,8 +11,9 @@ class GoalsController < ApplicationController
     @goal = Goal.find(params[:id])
     @tasks = @goal.tasks
     @progress = @goal.update_progress
-    @completed_tasks = @goal.tasks.where(completed: true).order(position: :asc)
-    @uncompleted_tasks = @goal.tasks.where(completed: false).order(position: :asc)
+    @completed_tasks = @goal.tasks.where(completed: true).order(order: :asc)
+    @uncompleted_tasks = @goal.tasks.where(completed: false).order(order: :asc)
+    # @journal_entries = @goal.task.journal_entries
   end
 
   def new
@@ -21,16 +22,16 @@ class GoalsController < ApplicationController
   end
 
 
-  def generate_task_description(goal)
-    "My goal is to #{goal.description}.
-    I want to start on #{goal.start_date.strftime('%A %d %B %Y')} and I want to end on #{goal.end_datestrftime('%A %d %B %Y')}.
-    I have access to #{goal.resources}.
-    Additionally, I've allocated #{goal.time_available} to dedicate towards
-    making this goal a reality. Please give me a step breakdown
-    of what I need to do to achieve my goal by the end of the
-    specified date. Please also label each step with a day of the week and a date.
-    Please return this information as an array of tasks"
-  end
+  # def generate_task_description(goal)
+  #   "My goal is to #{goal.description}.
+  #   I want to start on #{goal.start_date.strftime('%A %d %B %Y')} and I want to end on #{goal.end_datestrftime('%A %d %B %Y')}.
+  #   I have access to #{goal.resources}.
+  #   Additionally, I've allocated #{goal.time_available} to dedicate towards
+  #   making this goal a reality. Please give me a step breakdown
+  #   of what I need to do to achieve my goal by the end of the
+  #   specified date. Please also label each step with a day of the week and a date.
+  #   Please return this information as an array of tasks"
+  # end
 
   def create
     @goal = Goal.new(goal_params)
