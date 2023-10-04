@@ -93,4 +93,3 @@ class GoalsController < ApplicationController
   def goal_params
     params.require(:goal).permit(:name, :description, :start_date, :end_date, :resources, :time_available, :generate_tasks)
   end
-end

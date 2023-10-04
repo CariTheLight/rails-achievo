@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/submit_prompt', to: 'pages#submit_prompt'
   get '/home/random_quotes', to: 'home#random_quotes'
 
-  resources :goals, only: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :goals, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :journal_entries, only: [:index]
     resources :tasks, only: [:new, :create ] do
       resources :journal_entries, only: [:new, :create, :edit, :update, :destroy]
