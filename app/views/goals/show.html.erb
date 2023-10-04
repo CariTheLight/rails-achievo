@@ -1,38 +1,36 @@
 <div class="container mx-auto rounded-5 mb-5">
-<div class="content mx-5 mb-3 pt-5">
-  <h1><%= @goal.name %></h1>
-  <h3><%= @goal.description %></h3>
-  <h2>Tasks</h2>
-  <!-- Progress Bar -->
-  <div class="progress-group">
-    <div class="progress">
-      <div class="progress-bar" style="width: <%= @progress %>%;"></div>
-    </div>
-      <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
-  </div>
-  <div class="confetti-container">
-    <div id="celebrate-button", data-controller="confetti">Star Avo</div>
-  </div>
-  <!-- Task Cards -->
-  <div class="task-list">
-    <% @tasks.each do |task| %>
-      <div class="task-card my-3 py-3 border-top">
-        <div class="tasks-space">
-        <%= task.description %>
-        <!-- Task Completion Checkbox -->
-        <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
-        <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
-          <%# <%= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
-        <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
-        <% end %>
-        </div>
-        <%= link_to "Journal", new_goal_task_journal_entry_path(@goal, task), class: "btn btn-success" %>
-        <%= link_to "Edit", edit_task_path(task), class: "btn btn-success" %>
-        <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <div class="content mx-5 mb-3 pt-5">
+    <h1><%= @goal.name %></h1>
+    <h3><%= @goal.description %></h3>
+    <h2>Tasks</h2>
+    <!-- Progress Bar -->
+
+    <div class="progress-group">
+      <div class="progress">
+        <div class="progress-bar" style="width: <%= @progress %>%;"></div>
       </div>
+        <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
+    </div>
+    <!-- Task Cards -->
+    <div class="task-list">
+      <% @tasks.each do |task| %>
+        <div class="task-card my-3 py-3 border-top">
+          <div class="tasks-space">
+          <%= task.description %>
+          <!-- Task Completion Checkbox -->
+          <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
+          <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
+            <%# <%= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
+          <%= f.check_box :completed, { data: { controller: "confetti", action: "change->confetti#spray" } }, onchange: "this.form.submit();", label: "Completed" %>
+          <% end %>
+          </div>
+          <%= link_to "Journal", new_goal_task_journal_entry_path(@goal, task), class: "btn btn-success" %>
+          <%= link_to "Edit", edit_task_path(task), class: "btn btn-success" %>
+          <%= link_to "Delete", task_path(task), class: "btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
-    <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-primary" %>
+      <%= link_to "Add Task", new_goal_task_path(@goal), class: "btn btn-primary" %>
+    </div>
   </div>
-</div>
 </div>

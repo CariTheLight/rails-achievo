@@ -1,45 +1,24 @@
-<!--<h1>Create a Goal</h1>-->
+
 <div class= "container card rounded-5  mx-auto mb-5 ">
   <div class="content mx-5">
     <%= simple_form_for(@goal) do |f| %>
-      <%= f.error_notification %>
-        <div class="form-inputs">
-          <%= f.input :name, label: "What is the name of your goal?" %>
-          <%= f.input :description, label: "Please describe your goal.", as: :text %>
-          <%= f.input :start_date, label: "When do you want to start your goal? (Please add a date in this format: Wednesday 27 September 2023)", as: :date, html5: true %>
-          <%= f.input :end_date, label: "When do you want to complete your goal? (Please add a date in this format: Wednesday 27 September 2023)", as: :date, html5: true %>
-          <%= f.input :resources, label: "Please list any tools, materials, or support you have at your disposal to help you achieve this goal." %>
-          <%= f.input :time_available, label: "Please describe the amount of time you have for your goal per day, week, month, or year." %>
-          <%= f.input :generate_tasks, as: :boolean, label: "Create tasks with AI", as: :boolean, checked_value: 'true', unchecked_value: 'false' %>
-          <input type="hidden" name="user_id" value="user_id">
+        <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :name, label: "What is the name of your goal?" %>
+            <%= f.input :description, label: "Please describe your goal.", as: :text %>
+            <%= f.input :start_date, label: "When do you want to start your goal? (Please add a date in this format: Wednesday 27 September 2023)", as: :date, html5: true %>
+            <%= f.input :end_date, label: "When do you want to complete your goal? (Please add a date in this format: Wednesday 27 September 2023)", as: :date, html5: true %>
+            <%= f.input :resources, label: "Please list any tools, materials, or support you have at your disposal to help you achieve this goal." %>
+            <%= f.input :time_available, label: "Please describe the amount of time you have for your goal per day, week, month, or year." %>
+            <%= f.input :generate_tasks, as: :boolean, label: "Create tasks with AI", as: :boolean, checked_value: 'true', unchecked_value: 'false' %>
+            <input type="hidden" name="user_id" value="user_id">
+          </div>
+        <div class="form-actions">
+          <%= f.submit "Create" , class: "btn btn-primary" %>
         </div>
-      <div class="form-actions">
-        <%= f.submit "Create" , class: "btn btn-primary" %>
+      <div class="form-actions mb-5">
+        <%= f.submit "Submit form" , class: "btn btn-success", style: 'color: white;' %>
       </div>
-    <div class="form-actions mb-5">
-      <%= f.submit "Submit form" , class: "btn btn-success", style: 'color: white;' %>
-    </div>
-  <% end %>
-    </div>
-</div>
-<%#= simple_form_for(@goal) do |f| %>
-  <%#= f.error_notification %>
-<!--  <div class="form-inputs">-->
-    <%#= f.input :name, label: "What is the name of your goal?" %>
-    <%#= f.input :description, label: "Please describe your goal.", as: :text %>
-    <%#= f.input :start_date, label: "When do you want to start your goal? (Please add a date in this format: Wednesday 27 September 2023)", as: :date, html5: true %>
-    <%#= f.input :end_date, label: "When do you want to complete your goal? (Please add a date in this format: Wednesday 27 September 2023)", as: :date, html5: true %>
-    <%#= f.input :resources, label: "Please list any tools, materials, or support you have at your disposal to help you achieve this goal." %>
-    <%#= f.input :time_available, label: "Please describe the amount of time you have for your goal per day, week, month, or year." %>
-    <%#= f.input :generate_tasks, as: :boolean, label: "Create tasks with AI", as: :boolean, checked_value: 'true', unchecked_value: 'false' %>
-<!--    <input type="hidden" name="user_id" value="user_id">
-  </div>
-
-  <div class="form-actions">
-<!--
-  </div>-->
-
     <% end %>
-  </div>
+    </div>
 </div>
-

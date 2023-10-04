@@ -47,12 +47,13 @@ nav-item {
 
 }
 a.nav-link{
-  color:rgba(252, 251, 249, 0.561)
+  color:#16302B
 
 }
 
 .btn {
-  color:azure;
+  color:#16302B;
   background-color: #00000000;
-  border-color: #669a8a6b;
+  --bs-btn-border-width: 0;
+  
 }

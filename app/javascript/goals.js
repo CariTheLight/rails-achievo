@@ -16,7 +16,7 @@ $(document).on('click', '.complete-task', function() {
     $('.check_box').on('change', function() {
       var taskCard = $(this).closest('.task-card');
       var taskList = taskCard.closest('.task-list');
-      
+
       // Check if the checkbox is checked
       if ($(this).is(':checked')) {
         // Move the completed task to the bottom

@@ -4,10 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["completed"];
 
-  connect() {
-    console.log("howdy")
-  }
-
   toggle(event) {
     console.log("toggled!");
     const taskId = this.completedTarget.dataset.taskId;
@@ -27,7 +23,3 @@ export default class extends Controller {
   }
 
 }
-
-
-
-
