@@ -1,32 +1,18 @@
-.container {
-  max-width: 597px;
+.quote {
+  max-width: 40vw;
+  margin: 0 auto;
+  position: absolute;
+  top: 40rem;
+  left: 10rem;
 
   p{
-    font-style:bold;
-    font-size: 40px;
-    color:#9A8873;
-    justify-content: center;
-    padding-top: 300px;
-    padding-right: 150px;
-
+    font-size: 2rem;
+    font-family: $quotes-font;
+    color: rgba(255, 255, 255, 0.702);
+    margin-bottom: 0;
   }
 }
 
-
-
-// .quote{
-//   position: absolute;
-//   padding: 10px;
-//   display: grid;
-//   gap: 10px;
-
-//   p {
-//     display: block;
-//     font-family:Impact;
-//     font-size: 10px;
-//     justify-content: center;
-//     text-align: center;
-
-//   }
-
-// }
+.typed-cursor {
+  display: none;
+}
