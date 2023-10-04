@@ -1,8 +1,17 @@
 .container{
-  background-color: #bfae9a;
+  background-color: #a4927d;
   box-shadow: rgba(0, 0, 0, 0.15) 2.95px 2.95px 4.6px;
+  border-radius: 30px;
+  opacity: 70%;
 
   h1{
     font-weight: 900;
+  }
+  #container-elements{
+  opacity: 100%;
+  }
+
+  .grid-container{
+    opacity: 100%;
   }
 }

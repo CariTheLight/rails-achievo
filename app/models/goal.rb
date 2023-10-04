@@ -1,6 +1,6 @@
 class Goal < ApplicationRecord
   belongs_to :user
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   has_many :journal_entries, through: :tasks
 
   def self.submit_prompt(goal)
