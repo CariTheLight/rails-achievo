@@ -1,41 +1,33 @@
+<div <%= controller_name == 'pages' && action_name == 'home' ? 'class=navbar-transparent' : 'class=navbar-colored' %>>
+    <%= link_to root_path do %>
+      <%= image_tag "achievo.png",class: "logo" %>
+    <% end %>
 
-<div class ="p-3 mb-2 bg-transparent">
-  <div class="navbar navbar-expand-sm navbar-lewagon">
-    <div class="container-fluid ">
-      <%= link_to root_path do %>
-        <%= image_tag "achievo.png",class: "logo" %>
-      <% end %>
-
-      <div class="d-flex">
+    <div class="d-flex">
       <% if user_signed_in? && !current_page?(controller: 'goals', action: 'new')%>
-      <button class= "btn btn-secondary mx-3"> <%=link_to  "Create Goal", new_goal_path, class: "nav-link " %></button>
+        <button class= "btn btn-secondary mx-3"> <%=link_to "Create Goal", new_goal_path, class: "nav-link " %></button>
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle me-3 " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle me-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             My Goals
           </button>
           <ul class="dropdown-menu list-unstyled ">
-              <% @navbar_goals.each do |goal| %>
-                    <li> <%= link_to goal.name, goal_path(goal), class: "dropdown-item" %></li>
-              <% end %>
+          <% @navbar_goals.each do |goal| %>
+            <li> <%= link_to goal.name, goal_path(goal), class: "dropdown-item" %></li>
+          <% end %>
           </ul>
         </div>
       <% end %>
-            <% if user_signed_in? %>
-
-            <li class="no-bullets dropdown">
-              <%= image_tag "account.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-              </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+      <% if user_signed_in? %>
+        <li class="no-bullets dropdown">
+          <%= image_tag "account.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+        </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
     </div>
-    </div>
-  </div>
 </div>
