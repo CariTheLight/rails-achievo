@@ -14,6 +14,7 @@ class JournalEntriesController < ApplicationController
     # @goal = Goal.find(params[:goal_id])
     # @task = Task.find(params[:task_id])
     @journal_entry = JournalEntry.new
+
   end
 
   def create
