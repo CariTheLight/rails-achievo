@@ -2,5 +2,61 @@
     border: 1px solid grey;
     border-radius: 15px;
     padding: 15px;
+    background-color: #37423D;
+    opacity: 75%;
+    color: #FDFEFF;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    opacity: 100%;
 }
 
+.icons {
+    display: flex;
+    padding: 10px;
+    justify-content: flex-end;
+    gap: 15px;
+
+    i {
+        color: #D2D4C1;
+        font-size: 16px;
+        }
+
+    .icons:hover {
+        color: #7DCFB6;
+    }
+}
+
+.check-box {
+   margin-right: 10px;
+}
+
+.task-check {
+    display: flex;
+    justify-content: left;
+}
+
+.textarea {
+    font-family: "Prata", "serif";
+    h1 {
+        font-family: "Prata", "serif";
+        font-weight: lighter;
+    }
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.color {
+    color: #000000;
+}
+
+.goal-card {
+    background-color: #37423D;
+    padding: 1rem;
+    margin: 0.7rem 0;
+    border-radius: .5rem;
+
+    p {
+        margin-bottom: .25rem;
+    }
+}

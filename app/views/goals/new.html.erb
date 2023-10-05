@@ -1,5 +1,4 @@
-
-<div class="container card rounded-5 mx-auto my-5 py-5 px-5">
+<div class="container rounded-5 mx-auto my-5 py-5 px-5">
     <h1>Create a Goal</h1>
     <%= simple_form_for(@goal) do |f| %>
       <%= f.error_notification %>
@@ -14,10 +13,7 @@
           <input type="hidden" name="user_id" value="user_id">
         </div>
       <div class="form-actions">
-        <%= f.submit "Create" , class: "btn btn-primary" %>
+        <%= f.submit "Create" , class: "my-btn" %>
       </div>
-    <%# <div class="form-actions mb-5">
-      <%= f.submit "Submit form" , class: "btn btn-success", style: 'color: white;' %>
-    <%# </div>  %>
   <% end %>
 </div>

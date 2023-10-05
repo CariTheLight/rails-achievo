@@ -12,4 +12,8 @@
 @import "components/navbar";
 @import "components/quote";
 @import "components/footer";
-@import "components/confetti"
+@import "components/confetti";
+
+a {
+    text-decoration: none;
+}
