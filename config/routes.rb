@@ -11,10 +11,11 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new, :create ] do
       resources :journal_entries, only: [:new, :create, :edit, :update, :delete]
     end
+  end
 
   resources :tasks, only: [:destroy,:edit, :update] do
     resources :journal_entries, only: [:new, :create]
   end
   resources :journal_entries, only: [:show, :edit, :update, :destroy]
   end
-end
+

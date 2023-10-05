@@ -1,6 +1,9 @@
 class GoalsController < ApplicationController
   def index
     @goals = Goal.all
+    @goals_progresses = []
+    
+
 
     # @goal = Goal.find(params[:goal_id])
     # @journal_entries = @goal.journal_entries
