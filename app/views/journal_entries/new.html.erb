@@ -1,4 +1,12 @@
 
+    <h1 >What's on your mind?</h1>
+    <%= simple_form_for [@goal, @task, @journal_entry] do |f| %>
+      <%= f.input :entry_text %>
+      <%= f.input :entry_date, label: "Date", as: :date, html5: true %>
+      <%#= f.hidden_field :goal_id, value: @goal_id %>
+      <%= f.button :submit %>
+    <% end %>
+
 <div class="container journal-entry mt-5 rounded-4 py-5 mx-auto">
   <div class="textarea mx-4 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px ">
   <div class='d-flex justify-content-end'>
@@ -8,10 +16,11 @@
   </div>
   <%= simple_form_for [@goal, @task, @journal_entry] do |f| %>
     <h1><%= f.input :entry_text, label: "What's on your mind?" %></h1>
-    <%= f.input :entry_date, label: "Date", as: :date, html5: true %>
+    <%#= f.input :entry_date, label: "Date", as: :date, html5: true %>
     <%#= f.hidden_field :goal_id, value: @goal_id %>
     <%= f.submit "Submit entry", class: 'my-btn' %>
     </div>
   <% end %>
   </div>
 </div>
+

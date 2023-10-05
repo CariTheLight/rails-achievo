@@ -4,10 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["completed"];
 
-  connect() {
-    console.log("howdy")
-  }
-
   toggle(event) {
     console.log("toggled!");
     const taskId = this.completedTarget.dataset.taskId;
@@ -28,22 +24,3 @@ export default class extends Controller {
 
 }
 
-
-// document.getElementById('celebrateButton').addEventListener('click', () => {
-//   createConfetti();
-// });
-
-// function createConfetti() {
-//   const confettiContainer = document.querySelector('.confetti-container');
-//   const confetti = document.createElement('div');
-//   confetti.className = 'confetti';
-//   confetti.style.left = `${Math.random() * 100}%`;
-//   confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
-//   confetti.style.animationDelay = `${Math.random() * 2}s`;
-
-//   confetti.addEventListener('animationiteration', () => {
-//       confetti.remove();
-//   });
-
-//   confettiContainer.appendChild(confetti);
-// }

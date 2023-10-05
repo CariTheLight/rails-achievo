@@ -3,8 +3,6 @@ class GoalsController < ApplicationController
     @goals = Goal.all
     @goals_progresses = []
 
-
-
     # @goal = Goal.find(params[:goal_id])
     # @journal_entries = @goal.journal_entries
     # @task = Task.find(params[:task_id]) if params[:task_id]
@@ -23,7 +21,6 @@ class GoalsController < ApplicationController
     # @user = current_user
     @goal = current_user.goals.build
   end
-
 
   # def generate_task_description(goal)
   #   "My goal is to #{goal.description}.
