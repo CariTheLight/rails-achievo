@@ -1,13 +1,31 @@
-<div class="book" data-controller="journal" data-action="click->journal#flip">
-  <div id="pages" class="pages">
-    <div class="page">
-      <% @journal_entries.each do |journal_entry|%>
-        <%= journal_entry.task.description %>
-        <%=journal_entry.entry_text  %>
-        <%=journal_entry.entry_date  %>
-        <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "btn btn-secondary" %>
-        <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      <% end %>
-    </div>
+
+<div class="container card rounded-5 mx-auto my-5 py-5 px-5 justify-content-center">
+  <div class="mt-10 mb-4 ms-4 custom-font ">
+      <h1 class="fw-bold p-3">Journal Entries</h1>
   </div>
+
+      <% @journal_entries.each do |journal_entry|%>
+      <%= journal_entry.task.description %>
+      <br>
+      <br>
+      <div class="grid-container ">
+        <div class="col-md-20 mb-2 mx-3">
+          <div class="card  shadow-lg border border-2 border-success border-success-subtle p-3 mb-5 bg-success border-opacity-10 rounded-4">
+              <div class="card-body bg-success  text-wrap", id="container-elements">
+                <%=journal_entry.entry_text  %>
+                <br>
+                <br>
+                <%=journal_entry.entry_date  %>
+                <br>
+                <br>
+                <div claass= "position-absolute bottom-0 end-0">
+                  <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "btn btn-secondary" %>
+                  <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                </div>
+              </div>
+          </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
 </div>
