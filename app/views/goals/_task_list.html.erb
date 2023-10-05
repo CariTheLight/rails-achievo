@@ -2,9 +2,9 @@
         <div class="task-card my-3 py-3 border-top">
           <div class="task-check d-flex">
             <div class="check-box">
-            <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
+            <%= simple_form_for task, html: { data: { controller: "confetti" } } do |f| %>
             <%#= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
-            <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
+            <%= f.check_box :completed,{ data: { action: "click->confetti#spray", confetti_target: "checkbox" } }, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
           </div>
           <div class="tasks-space">
             <%= task.description %>
