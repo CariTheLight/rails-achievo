@@ -1,14 +1,14 @@
 <div class="container p-4 mb-5">
-  <div class='d-flex justify-content-between'>
-    <h1 class="fw-bold">Goals</h1>
+  <div class='back-heading'>
     <%= link_to root_path, class: 'close-btn' do %>
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
+    <h1 class="fw-bold">All My Goals</h1>
   </div>
   <% @goals.each do |goal| %>
     <%= link_to goal_path(goal) do %>
       <div class="goal-card">
-        <h2 class="fs-4 fw-bold text-light"><%= goal.name %></h2>
+        <h2 class="fs-4 secondary-heading text-light"><%= goal.name %></h2>
         <div class="progress-group mb-3">
           <div class="progress">
             <div class="progress-bar" style="width: <%= goal.update_progress %>%;"></div>

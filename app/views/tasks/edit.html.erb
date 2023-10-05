@@ -1,12 +1,13 @@
 <div class="container mx-10 mt-5 rounded-4">
 <div class="description py-4 mx-3">
-  <div class='d-flex justify-content-end'>
+  <div class='back-heading'>
       <%= link_to goal_path(@goal), class: 'close-btn' do %>
         <i class="fa-solid fa-arrow-left"></i>
       <% end %>
+  <h1>Description</h1>
   </div>
   <%= simple_form_for @task do |f| %>
-    <h1><%= f.input :description %></h1>
+    <h1><%= f.input :description, label: false %></h1>
     <div class="edit-btns">
       <%= f.submit "Add task", class: "my-btn" %>
     </div>
