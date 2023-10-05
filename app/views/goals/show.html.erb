@@ -22,7 +22,11 @@
       <%= render partial: "task_list", locals: {tasks: @uncompleted_tasks, goal: @goal} %>
       <%= render partial: "task_list", locals: {tasks: @completed_tasks, goal: @goal} %>
       <div class="mt-4">
+
+<!--         <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn" %> -->
+
       <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn d-flex justify-content-center" %>
+
       </div>
 
     </div>

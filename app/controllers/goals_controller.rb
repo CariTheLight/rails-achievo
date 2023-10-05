@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   def index
     @goals = Goal.all
     @goals_progresses = []
+
     # @goal = Goal.find(params[:goal_id])
     # @journal_entries = @goal.journal_entries
     # @task = Task.find(params[:task_id]) if params[:task_id]
@@ -35,11 +36,9 @@ class GoalsController < ApplicationController
   def create
     @goal = Goal.new(goal_params)
     @goal.user = current_user
-    if @goal.save
-      if @goal.generate_tasks
-        Goal.submit_prompt(@goal)
-        redirect_to goal_path(@goal), notice: "Goal and tasks were successfully created!"
-      end
+    if @goal.save! && @goal.generate_tasks
+      Goal.submit_prompt(@goal)
+      redirect_to goal_path(@goal), notice: "Goal and tasks were successfully created!"
     elsif @goal.save! && !@goal.generate_tasks
       redirect_to goal_path(@goal), notice: "Goal was successfully created!"
     else
