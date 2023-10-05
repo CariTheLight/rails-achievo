@@ -22,7 +22,6 @@ userFirst = User.create!(
 
 
 
-
 puts "Creating goals"
 
 goal = Goal.create!(
@@ -96,7 +95,6 @@ task3 = Task.create!(
 #       )
 #     end
 # puts "Creating reminders"
-
 
 puts "Seeded database with #{User.count} users, #{Goal.count} goals, #{Task.count} tasks, and #{Reminder.count} reminders."
 
