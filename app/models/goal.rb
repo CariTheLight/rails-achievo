@@ -34,7 +34,7 @@ class Goal < ApplicationRecord
     else
       progress = 0
     end
-    return progress
+    return progress.floor
   end
 
   def complete
