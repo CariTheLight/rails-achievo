@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   end
   resources :tasks, only: [:destroy,:edit, :update] do
     resources :journal_entries, only: [:new, :create]
-
   end
   resources :journal_entries, only: [:show, :edit, :update, :destroy]
-end
+  end

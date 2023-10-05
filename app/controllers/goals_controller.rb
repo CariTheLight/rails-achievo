@@ -1,9 +1,12 @@
 class GoalsController < ApplicationController
   def index
-    # @goals = Goal.all
+    @goals = Goal.all
+    @goals_progresses = []
+    
 
-    @goal = Goal.find(params[:goal_id])
-    @journal_entries = @goal.journal_entries
+
+    # @goal = Goal.find(params[:goal_id])
+    # @journal_entries = @goal.journal_entries
     # @task = Task.find(params[:task_id]) if params[:task_id]
   end
 
