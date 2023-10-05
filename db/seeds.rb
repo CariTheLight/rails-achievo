@@ -21,6 +21,7 @@ userFirst = User.create!(
 )
 
 
+puts "Creating users"
 
 puts "Creating goals"
 
@@ -28,14 +29,17 @@ goal = Goal.create!(
   name: "Study Web Development with Le Wagon",
   description: "I want to learn to code and create cool web applications",
   user: userFirst,
+  start_date: Date.today - 59,
+  end_date: Date.today
 )
 
 goal2 = Goal.create!(
   name: "Run a marathon",
   description: "Be super fit in 3 months, just in time for summer",
-  start_date: Date.today - 100
-  end_date: Date.today - 20
   user: userFirst,
+  start_date: Date.today - 100,
+  end_date: Date.today - 20
+
 )
 #     last_task = nil  # Initialize this variable to keep track of the last task for each goal
 #     # Create fake tasks for each goal
@@ -119,12 +123,3 @@ quotes = [
 quotes.each do |quote|
   MotivationalQuote.create(text: quote)
 end
-
-
-
-
-
-
-
-
-
