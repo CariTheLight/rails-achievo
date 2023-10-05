@@ -21,7 +21,6 @@ class GoalsController < ApplicationController
     @goal = current_user.goals.build
   end
 
-
   # def generate_task_description(goal)
   #   "My goal is to #{goal.description}.
   #   I want to start on #{goal.start_date.strftime('%A %d %B %Y')} and I want to end on #{goal.end_datestrftime('%A %d %B %Y')}.

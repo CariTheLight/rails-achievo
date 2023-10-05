@@ -14,10 +14,16 @@
 .progress-group {
   display: flex;
   gap: 10px;
-
+  a {
+    color: #D2D4C1 !important;
+  }
 }
 
 .tasks-space {
   display: flex;
   justify-content: space-between;
+}
+
+.percentage-show {
+  color: #D2D4C1;
 }
