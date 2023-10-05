@@ -1,8 +1,12 @@
-<h1>edit </h1>
-
-<%= simple_form_for @journal_entry do |f| %>
-  <%= f.input :entry_text %>
-  <%= f.input :entry_date, label: "Date", as: :date, html5: true %>
-  <%#= f.hidden_field :goal_id, value: @goal_id %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container p-4 mx-auto">
+<div class="edit-journal d-flex justify-content-between " >
+    <!--<h1><%#= "Edit Journal entry" %></h1>-->
+  <%= simple_form_for @journal_entry do |f| %>
+  <%= link_to goal_journal_entries_path(@goal), class: 'close-btn' do %>
+        <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+</div>
+    <h1><%= f.input :entry_text %></h1>
+    <%= f.submit "Submit", class: "my-btn mb-3 d-flex justify-content-center" %>
+  <% end %>
+</div>

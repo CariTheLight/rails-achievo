@@ -6,8 +6,8 @@
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
   </div>
-    <h3><%= @goal.description %></h3>
-    <h2>Tasks</h2>
+    <strong><h3><%= @goal.description %></h3></strong>
+    <b><h2>Tasks</h2></b>
     <!-- Progress Bar -->
     <div class="progress-group mb-3">
       <div class="progress">
@@ -15,15 +15,20 @@
     </div>
       <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
     </div>
-  <%= link_to "View All Journal Entries for: " +  @goal.name.upcase, goal_journal_entries_path(@goal), class: "btn btn-success" %>
+  <%= link_to "All Journal Entries", goal_journal_entries_path(@goal), class: "my-btn d-flex justify-content-center" %>
 
     <!-- Task Cards -->
     <div class="task-list">
       <%= render partial: "task_list", locals: {tasks: @uncompleted_tasks, goal: @goal} %>
       <%= render partial: "task_list", locals: {tasks: @completed_tasks, goal: @goal} %>
       <div class="mt-4">
-        <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn" %>
+
+<!--         <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn" %> -->
+
+      <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn d-flex justify-content-center" %>
+
       </div>
+
     </div>
   </div>
 </div>

@@ -19,7 +19,7 @@ class Goal < ApplicationRecord
       if task.save
         puts "Task saved successfully"
       else
-        flash.now[:alert] = 'Error generating the task.'
+        puts 'Error generating the task.'
         render :new
       end
     end
