@@ -1,6 +1,6 @@
 class Goal < ApplicationRecord
   belongs_to :user
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   has_many :journal_entries, through: :tasks
 
   def self.submit_prompt(goal)
@@ -13,9 +13,9 @@ class Goal < ApplicationRecord
     response = OpenaiService.new(task_description).call
 
     steps = response.split("\n")
-    steps.each do |step|
-      task = Task.new(description: step, goal_id: goal.id)
-
+    steps.each_with_index do |step, index|
+      task = Task.new(description: step, goal_id: goal.id, completed: false, order: index+1)
+      
       if task.save
         puts "Task saved successfully"
       else
@@ -34,7 +34,6 @@ class Goal < ApplicationRecord
     else
       progress = 0
     end
-
     return progress
   end
 

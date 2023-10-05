@@ -1,0 +1,27 @@
+      <% tasks.each do |task| %>
+        <div class="task-card my-3 py-3 border-top">
+          <div class="task-check d-flex">
+            <div class="check-box">
+            <%= simple_form_for task, html: { data: { controller: "tasks" } } do |f| %>
+            <%#= f.input :completed, as: :boolean, input_html: { data: { task_id: task.id, target: "tasks.completed" } }, label: "Completed" %>
+            <%= f.check_box :completed, class: "check_box", onchange: "this.form.submit();", label: "Completed" %>
+          </div>
+          <div class="tasks-space">
+            <%= task.description %>
+          </div>
+            <!-- Task Completion Checkbox -->
+            </div>
+            <% end %>
+          <div class="icons d-flex">
+            <%= link_to new_goal_task_journal_entry_path(goal, task) do %>
+              <i class="fa-solid fa-book"></i>
+            <% end %>
+            <%= link_to edit_task_path(task) do %>
+              <i class="fa-regular fa-pen-to-square"></i>
+            <% end %>
+            <%= link_to task_path(task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>

@@ -1,8 +1,54 @@
 .form-inputs{
   color: #000000;
+  // font-family: "Prata", "serif";
 }
 
 #goal_name, #goal_description, #goal_start_date, #goal_end_date, #goal_resources, #goal_time_available  {
   background-color: #37423D;
-  color:  rgba(255, 255, 255, 0.5);
+  color: #F4F4F4;
+  opacity: 100%;
+}
+
+#journal_entry_entry_text, #journal_entry_entry_date {
+  background-color: #37423D;
+  color: #F4F4F4;
+  opacity: 100%;
+}
+
+#task_description {
+  background-color: #37423D;
+  color: #F4F4F4;
+  opacity: 100%;
+}
+.edit-btns {
+  display: flex;
+  justify-content: space-between;
+}
+.my-btn {
+  border: 2px solid $green;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: $green;
+  &:hover {
+    border: 2px solid white;
+    background-color: $green;
+    color: #F4F4F4;
+  }
+}
+.close-btn {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid $green;
+  padding: 2px;
+  // border-radius: 5px;
+  text-decoration: none;
+  color: $green;
+  &:hover {
+    border: 2px solid white;
+    background-color: $green;
+    color: #F4F4F4;
+  }
 }
