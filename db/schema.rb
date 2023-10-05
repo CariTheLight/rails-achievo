@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_04_123605) do
     t.bigint "goal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "order"
+    t.integer "order", default: -1
     t.index ["goal_id"], name: "index_tasks_on_goal_id"
   end
 
