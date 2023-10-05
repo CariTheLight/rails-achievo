@@ -19,44 +19,88 @@ userFirst = User.create!(
     email: "achievo@test.com",
     password: "password"
 )
+
+
 3.times do
   user = User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password
   )
 puts "Creating users"
-  # Create fake goals for each user
-  3.times do
-    goal = Goal.create!(
-      user: user,
-      name: Faker::Lorem.sentence(word_count: 4),  # name: goal_names.sample,
-      description: Faker::Lorem.sentence(word_count: 4),
-      start_date: Faker::Date.backward(days: 14),
-      end_date: Faker::Date.forward(days: 14)
-    )
+
 puts "Creating goals"
-    last_task = nil  # Initialize this variable to keep track of the last task for each goal
-    # Create fake tasks for each goal
-    5.times do
-      last_task = Task.create!(
-        goal: goal,
-        name: tasks_names.sample,
-        description: Faker::Lorem.sentence(word_count: 3),
-        completed: Faker::Boolean.boolean
-      )
+
+goal = Goal.create!(
+  name: "Study Web Development with Le Wagon",
+  description: "I want to learn to code and create cool web applications",
+  user: userFirst,
+)
+
+goal2 = Goal.create!(
+  name: "Run a marathon",
+  description: "Be super fit in 3 months, just in time for summer",
+  user: userFirst,
+)
+#     last_task = nil  # Initialize this variable to keep track of the last task for each goal
+#     # Create fake tasks for each goal
+#     5.times do
+#       last_task = Task.create!(
+#         goal: goal,
+#         name: tasks_names.sample,
+#         description: Faker::Lorem.sentence(word_count: 3),
+#         completed: Faker::Boolean.boolean
+#       )
+#
 puts "Creating tasks"
-    end
+
+task1 = Task.create!(
+  description: "1. Complete prepwork",
+  completed: true,
+  goal: goal,
+)
+
+task2 = Task.create!(
+  description: "2. Programming basics",
+  completed: true,
+  goal: goal,
+)
+
+task3 = Task.create!(
+  description: "3. Front-end design",
+  completed: false,
+  goal: goal,
+)
+
+
+task1 = Task.create!(
+  description: "1. Exercise daily",
+  completed: true,
+  goal: goal2,
+)
+
+task2 = Task.create!(
+  description: "2. Join a gym club",
+  completed: true,
+  goal: goal2,
+)
+
+task3 = Task.create!(
+  description: "3. Run 2km every morning",
+  completed: false,
+  goal: goal2,
+)
+    # end
     # Create fake reminders for each user using the last task for each goal
-    3.times do
-      Reminder.create!(
-          task: last_task,
-          user: user,
-          name: reminder_names.sample
-      )
-    end
-puts "Creating reminders"
+#     3.times do
+#       Reminder.create!(
+#           task: last_task,
+#           user: user,
+#           name: reminder_names.sample
+#       )
+#     end
+# puts "Creating reminders"
   end
-end
+
 puts "Seeded database with #{User.count} users, #{Goal.count} goals, #{Task.count} tasks, and #{Reminder.count} reminders."
 
 puts "creating motivational quotes"
