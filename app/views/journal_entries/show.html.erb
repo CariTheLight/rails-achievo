@@ -1,15 +1,10 @@
 <div class="journal-entry">
 <div>
-
 <h1>Entries</h1>
-
-<br>
-
 <%= @journal_entry.entry_text %> -
 <%=@journal_entry.entry_date  %>
 </div>
 </div>
-<br>
 <div>
 <%= link_to "Show all entries", goal_journal_entries_path(@journal_entry.task.goal), class: "btn btn-secondary" %>
-<!----><!----><!----></div>
+</div>
