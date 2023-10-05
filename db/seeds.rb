@@ -21,12 +21,6 @@ userFirst = User.create!(
 )
 
 
-3.times do
-  user = User.create!(
-    email: Faker::Internet.email,
-    password: Faker::Internet.password
-  )
-puts "Creating users"
 
 puts "Creating goals"
 
@@ -39,6 +33,8 @@ goal = Goal.create!(
 goal2 = Goal.create!(
   name: "Run a marathon",
   description: "Be super fit in 3 months, just in time for summer",
+  start_date: Date.today - 100
+  end_date: Date.today - 20
   user: userFirst,
 )
 #     last_task = nil  # Initialize this variable to keep track of the last task for each goal
@@ -99,7 +95,6 @@ task3 = Task.create!(
 #       )
 #     end
 # puts "Creating reminders"
-  end
 
 puts "Seeded database with #{User.count} users, #{Goal.count} goals, #{Task.count} tasks, and #{Reminder.count} reminders."
 
@@ -124,3 +119,12 @@ quotes = [
 quotes.each do |quote|
   MotivationalQuote.create(text: quote)
 end
+
+
+
+
+
+
+
+
+
