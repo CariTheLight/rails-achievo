@@ -18,9 +18,9 @@ let confetti = {
 };
 // Connects to data-controller="confetti"
 export default class extends Controller {
+  static targets = ['checkbox']
 
   connect() {
-
     (function() {
       confetti.start = startConfetti;
       confetti.stop = stopConfetti;
@@ -221,12 +221,12 @@ export default class extends Controller {
 
   spray() {
     // build conditional statement
-    if (this.element.checked) {
+    if (this.checkboxTarget.checked) {
       confetti.start();
       setTimeout(() => {
         confetti.stop();
+        this.element.submit()
       }, 3000);
-
     }
 
     // check whether this.element.checked returns true
