@@ -16,7 +16,7 @@
   </div>
   <%= simple_form_for [@goal, @task, @journal_entry] do |f| %>
     <h1><%= f.input :entry_text, label: "What's on your mind?" %></h1>
-    <%= f.input :entry_date, label: "Date", as: :date, html5: true %>
+    <%#= f.input :entry_date, label: "Date", as: :date, html5: true %>
     <%#= f.hidden_field :goal_id, value: @goal_id %>
     <%= f.submit "Submit entry", class: 'my-btn' %>
     </div>
