@@ -1,7 +1,7 @@
-<div <%= controller_name == 'pages' && action_name == 'home' ? 'class=navbar-transparent' : 'class=navbar-colored' %>>
-    <%= link_to root_path do %>
-      <%= image_tag "achievo.png",class: "logo" %>
-    <% end %>
+<%# <div <%= controller_name == 'pages' && action_name == 'home' ? 'class=navbar-transparent' : 'class=navbar-colored' %>
+    <%# <%= link_to root_path do %>
+      <%# <%= image_tag "achievo.png",class: "logo" %>
+    <%# <% end %>
 
 
 <div class="p-3 mb-2 bg-transparent">
@@ -12,7 +12,7 @@
       <% end %>
 
       <div class="d-flex">
-        <% if user_signed_in? && !current_page?(controller: 'goals', action: 'new') %>
+        <% if user_signed_in?  %>
           <button class="btn btn-secondary mx-3">
             <%= link_to "Create Goal", new_goal_path, class: "nav-link text-white" %>
           </button>

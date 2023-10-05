@@ -1,7 +1,6 @@
-
-<div class="container card rounded-5 mx-auto my-5 py-5 px-5">
+<div class="container card rounded-5 mx-auto my-5 py-5 px-5" data-controller="loading" data-action="submit->loading#showLoadingScreen">
     <h1>Create a Goal</h1>
-    <%= simple_form_for(@goal) do |f| %>
+    <%= simple_form_for(@goal, html: { id: 'goal-form' } ) do |f| %>
       <%= f.error_notification %>
         <div class="form-inputs">
           <%= f.input :name, label: "What is the name of your goal?" %>
@@ -14,7 +13,14 @@
           <input type="hidden" name="user_id" value="user_id">
         </div>
       <div class="form-actions">
-        <%= f.submit "Create" , class: "my-btn" %>
+        <%= f.submit "Create" , class: "my-btn", id: "submit-btn" %>
       </div>
   <% end %>
+</div>
+
+<!-- Loading screen -->
+<div id="loading-screen" class="loading-screen">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 </div>

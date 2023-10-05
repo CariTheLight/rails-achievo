@@ -12,8 +12,8 @@
     <div class="progress-group">
       <div class="progress">
         <div class="progress-bar" style="width: <%= @progress %>%;"></div>
-  <%= link_to "View All Journal Entries for: " +  @goal.name.upcase, goal_journal_entries_path(@goal), class: "btn btn-success" %>
-      <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
+          <%= link_to "View All Journal Entries for: " +  @goal.name.upcase, goal_journal_entries_path(@goal), class: "btn btn-success" %>
+        <div class="percentage-show"><%= "#{@progress.floor}%" %></div>
           <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="<%= "#collapseExample#{index}" %>"aria-expanded="false" aria-controls="<%= "collapseExample#{index}" %>">
             View Journal
           </button>
@@ -33,7 +33,7 @@
       <%= render partial: "task_list", locals: {tasks: @uncompleted_tasks, goal: @goal} %>
       <%= render partial: "task_list", locals: {tasks: @completed_tasks, goal: @goal} %>
       <div class="mt-4">
-      <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn" %>
+        <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn" %>
       </div>
     </div>
   </div>
