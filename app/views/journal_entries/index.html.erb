@@ -1,11 +1,42 @@
 
-
+<!--
 <div>
-  <% @journal_entries.each do |journal_entry|%>
-    <%= journal_entry.task.description %>
-    <%=journal_entry.entry_text  %>
-    <%=journal_entry.entry_date  %>
-    <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "btn btn-secondary" %>
-    <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%# @journal_entries.each do |journal_entry|%>-->
+    <%#= journal_entry.task.description %>
+    <%#=journal_entry.entry_text  %>
+    <%#=journal_entry.entry_date  %>
+    <%#= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "btn btn-secondary" %>
+    <%#= link_to "Delete Entry", journal_entry_path(journal_entry), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  <%# end %>
+<!--</div>-->
+
+<div class="container rounded-4 mx-auto my-5 py-5 px-5 justify-content-center">
+  <div class="d-flex justify-content-between mb-2 custom-font ">
+   <h1 class="fw-bold">Journal Entries</h1>
+   <%= link_to goal_path(@goal), class: 'close-btn' do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <% @journal_entries.each do |journal_entry| %>
+    <div class="grid-container">
+    <b><%= journal_entry.task.description %></b>
+      <div class="col-md-20 mb-2 mx-3 mt-4">
+        <div class="card shadow-lg border border-2 border-success border-success-subtle p-3 bg-success border-opacity-10 rounded-4">
+          <div class="card-body bg-success text-wrap" id="container-elements">
+            <%= journal_entry.entry_text %>
+            <%= journal_entry.entry_date %>
+            <div class="icons">
+              <%= link_to edit_journal_entry_path(journal_entry) do %>
+                <i class="fa-regular fa-pen-to-square"></i>
+              <% end %>
+              <%= link_to journal_entry_path(journal_entry), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
+

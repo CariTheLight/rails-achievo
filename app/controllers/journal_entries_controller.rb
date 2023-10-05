@@ -21,6 +21,7 @@ class JournalEntriesController < ApplicationController
     # @journal_entry = @task.journal_entries.build(journal_entry_params)
     @journal_entry = JournalEntry.new(journal_entry_params)
     @journal_entry.task = @task
+    @journal_entry.entry_date = Date.today
     # @journal_entry.save
     if @journal_entry.save
       redirect_to journal_entry_path(@journal_entry), notice: 'Journal entry was successfully created.'
@@ -39,6 +40,7 @@ class JournalEntriesController < ApplicationController
     @journal_entry = JournalEntry.find(params[:id])
 
     if @journal_entry.update(journal_entry_params)
+      @journal_entry.update(entry_date: Date.today)
       redirect_to goal_journal_entries_path(@journal_entry.task.goal), notice: 'Journal entry was successfully updated.'
     else
       render :edit
