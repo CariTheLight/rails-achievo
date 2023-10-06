@@ -14,8 +14,6 @@
           <%= link_to "Create Goal", new_goal_path, class: "btn btn-success text-white mx-3" %>
          
           <%= link_to "My Goals", goals_path, class: "btn btn-success text-white mx-3" %>
-        <% end %>
-        <% if user_signed_in? %>
           <li class="no-bullets dropdown">
             <%= image_tag "account1.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -23,9 +21,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
+            <%= link_to "Login", new_user_session_path, class: "btn btn-success text-white mx-3" %>
         <% end %>
       </div>
     </div>
