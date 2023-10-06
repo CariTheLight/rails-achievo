@@ -1,18 +1,18 @@
-<div class="container p-4 mb-5">
-  <div class="d-flex justify-content-between mb-2 custom-font ">
-  <h1 class="fw-bold">Journal Entries</h1>
-  <%= link_to goal_path(@goal), class: 'close-btn' do %>
+<div class="container p-5 my-5">
+  <div class="back-heading">
+    <%= link_to goal_path(@goal), class: 'close-btn' do %>
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
+    <h1>JOURNAL ENTRIES</h1>
   </div>
+  <p><b>TASK <%= @journal_entries.first.task.description %></b></p>
   <% @journal_entries.each do |journal_entry| %>
     <div class="grid-container">
-    <b><%= journal_entry.task.description %></b>
-      <div class="col-md-20 mb-2 mx-3 mt-4">
-        <div class="card shadow-lg border border-2 border-success border-success-subtle p-3 bg-success border-opacity-10 rounded-4">
+      <div class="col-md-20 mt-2">
+        <div class="card shadow-lg border border-2 border-success border-success-subtle p-3 bg-success border-opacity-10 rounded-4 mb-3">
           <div class="card-body bg-success text-wrap" id="container-elements">
-            <%= journal_entry.entry_text %>
-            <%= journal_entry.entry_date %>
+            <p><strong><%= journal_entry.entry_date.strftime("%b %d, %Y") %></strong></p>
+            <p><%=journal_entry.entry_text %></p>
             <div class="icons">
               <%= link_to edit_journal_entry_path(journal_entry) do %>
                 <i class="fa-regular fa-pen-to-square"></i>
@@ -27,3 +27,4 @@
     </div>
   <% end %>
 </div>
+<div class="spacer"></div>

@@ -1,10 +1,10 @@
-<div class="container mx-auto mb-5 mt-5">
- <div class="content mx-5 mb-3 pt-5 pb-3">
+<div class="container p-5 mx-auto my-5">
+ <div>
       <div class='back-heading'>
     <%= link_to root_path, class: 'close-btn' do %>
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
-    <h1 class="fw-bold">All My Goals</h1>
+    <h1>ALL MY GOALS</h1>
   </div>
   <% @goals.each do |goal| %>
     <%= link_to goal_path(goal) do %>
@@ -33,3 +33,5 @@
   <% end %>
    </div>
 </div>
+   <div class="spacer">
+   </div>

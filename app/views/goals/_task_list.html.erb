@@ -25,7 +25,7 @@
           </div>
           <% task.journal_entries.each_with_index do |journal_entry, index| %>
           <button class="my-btn mb-2" type="button" data-bs-toggle="collapse" data-bs-target="<%= "#collapseExample#{index}" %>"aria-expanded="false" aria-controls="<%= "collapseExample#{index}" %>">
-            View Journal
+            View Journal Entry
           </button>
           <div class="collapse" id= "<%= "collapseExample#{index}" %>">
               <div class="card card-body color">

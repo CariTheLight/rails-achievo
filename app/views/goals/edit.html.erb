@@ -1,9 +1,9 @@
-<div class="container p-4 mb-5">
-  <div class="back-heading mt-3">
+<div class="container p-5 mt-5 mb-5">
+  <div class="back-heading">
     <%= link_to goals_path, class: 'close-btn' do %>
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
-    <h1>Goal name</h1>
+    <h1 style="font-weight: 600">EDIT GOAL</h1>
   </div>
   <%= simple_form_for [@goal] do |f| %>
     <h3 class=""><b><%= f.input :name, label: false %></b></h3>
