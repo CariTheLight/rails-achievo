@@ -35,8 +35,9 @@ task1 = Task.create!(
   goal: goal1
 )
 
+# Journal Entry 1 for Task 1 (Goal 1)
 journal_1 = JournalEntry.create!(
-  entry_text: "This was tough to get started!",
+  entry_text: "Starting the prepwork was a bit overwhelming, but I pushed through it. It's exciting to embark on this journey to learn web development. I can't wait to see how far I'll come!",
   entry_date: Date.today - 300,
   task: task1
 )
@@ -47,7 +48,7 @@ task2 = Task.create!(
   goal: goal1
 )
 journal_2 = JournalEntry.create!(
-  entry_text: "Learning the basics was challenging, but I'm making progress.",
+  entry_text: "Learning the basics of programming has been a rollercoaster of challenges and breakthroughs. It's like deciphering a secret code that unlocks the world of web development. I'm determined to conquer it!",
   entry_date: Date.today - 250,
   task: task2
 )
@@ -57,7 +58,7 @@ task3 = Task.create!(
   goal: goal1
 )
 journal_3 = JournalEntry.create!(
-  entry_text: "Web scraping and working with APIs was a fascinating experience.",
+  entry_text: "Web scraping and working with APIs has been an adventure into the digital wilderness. I've extracted data from the web, and it feels like I've unlocked a hidden treasure trove. The possibilities are endless!",
   entry_date: Date.today - 200,
   task: task3
 )
@@ -67,7 +68,7 @@ task4 = Task.create!(
   goal: goal1
 )
 journal_4 = JournalEntry.create!(
-  entry_text: "Mastering software design models like MVC felt like a significant milestone.",
+  entry_text: "Mastering software design models like MVC was like learning to compose music. Each component plays a unique role in the symphony of web development. I'm becoming the conductor of my own web orchestra!",
   entry_date: Date.today - 150,
   task: task4
 )
@@ -77,7 +78,7 @@ task5 = Task.create!(
   goal: goal1
 )
 journal_5 = JournalEntry.create!(
-  entry_text: "Using SQL to manage databases was challenging at first, but I'm getting the hang of it.",
+  entry_text: "SQL, the language of databases, initially felt like a foreign dialect, but now it's becoming my second language. CRUD and JOIN operations have opened doors to database wizardry. I'm becoming a data magician!",
   entry_date: Date.today - 120,
   task: task5
 )
@@ -87,7 +88,7 @@ task6 = Task.create!(
   goal: goal1
 )
 journal_6 = JournalEntry.create!(
-  entry_text: "Coding with HTML, CSS, and Bootstrap 5 has been a creative process.",
+  entry_text: "Coding with HTML, CSS, and Bootstrap 5 is like painting with pixels. I'm crafting digital landscapes and bringing my creative visions to life. Each line of code is a brushstroke on my canvas of the web!",
   entry_date: Date.today - 90,
   task: task6
 )
@@ -99,7 +100,7 @@ task7 = Task.create!(
   goal: goal1
 )
 journal_7 = JournalEntry.create!(
-  entry_text: "Practicing with JavaScript frameworks like Vue.js, React, and Stimulus.js has been exciting.",
+  entry_text: "Practicing with JavaScript frameworks like Vue.js, React, and Stimulus.js is like learning to dance to a new beat. I'm grooving to the rhythm of interactive web development. It's a dance party in my code!",
   entry_date: Date.today - 60,
   task: task7
 )
@@ -109,9 +110,10 @@ task8 = Task.create!(
   deployment",
   completed: true,
   goal: goal1
+
 )
 journal_8 = JournalEntry.create!(
-  entry_text: "Mastering the development of web applications from design to deployment is a valuable skill.",
+  entry_text: "Mastering the development of web applications from design to deployment is like building a digital skyscraper from the ground up. I'm the architect, engineer, and builder of my web dreams!",
   entry_date: Date.today - 45,
   task: task8
 )
@@ -121,7 +123,7 @@ task9 = Task.create!(
   goal: goal1
 )
 journal_9 = JournalEntry.create!(
-  entry_text: "Coding with Ruby on Rails for my app is both challenging and rewarding.",
+  entry_text: "Coding with Ruby on Rails for my app is like sculpting with digital clay. I'm molding my ideas into functional web applications. It's both a challenge and a rewarding creative process!",
   entry_date: Date.today - 30,
   task: task9
 )
@@ -131,7 +133,7 @@ task10 = Task.create!(
   goal: goal1
 )
 journal_10 = JournalEntry.create!(
-  entry_text: "Continuing to improve my JavaScript skills is crucial for my progress.",
+  entry_text: "Continuing to improve my JavaScript skills is like sharpening a versatile tool. JavaScript is the Swiss Army knife of web development, and I'm honing my skills to build amazing web experiences!",
   entry_date: Date.today - 15,
   task: task10
 )
@@ -141,7 +143,7 @@ task11 = Task.create!(
   goal: goal1
 )
 journal_11 = JournalEntry.create!(
-  entry_text: "Working on a team project to create a marketplace has been a great learning experience.",
+  entry_text: "Working on a team project to create a marketplace has been a thrilling group expedition. We're architects of a digital marketplace, and our collaboration is shaping the future of online commerce!",
   entry_date: Date.today - 7,
   task: task11
 )
@@ -151,10 +153,11 @@ task12 = Task.create!(
   goal: goal1
 )
 journal_12 = JournalEntry.create!(
-  entry_text: "I've completed the final project and feel accomplished in my journey to become a web developer!",
+  entry_text: "I've reached the pinnacle of my web development journey with the final project. It's like planting a flag on the summit of a mountain. I'm proud of what I've achieved!",
   entry_date: Date.today,
   task: task12
 )
+
 task13 = Task.create!(
   description: "13. DEMO DAY",
   completed: false,
