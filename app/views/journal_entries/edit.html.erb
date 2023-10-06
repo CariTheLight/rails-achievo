@@ -1,12 +1,14 @@
-<div class="container py-2 mx-3">
+<div class="container p-4 mx-auto">
+<div class="edit-journal d-flex justify-content-between " >
+    <!--<h1><%#= "Edit Journal entry" %></h1>-->
+  <h1>Tell me how you really feel</h1>
+  <%= link_to goal_journal_entries_path(@goal), class: 'close-btn' do %>
+        <i class="fa-solid fa-arrow-left"></i>
+  <% end %>
+</div>
   <%= simple_form_for @journal_entry do |f| %>
-    <h1><%= f.input :entry_text, label: "Edit" %></h1>
-    <%#= link_to goal_journal_entries_path(@goal, @journal_entry), class: 'close-btn' do %>
-      <!--<i class="fa-solid fa-arrow-left"></i>-->
-    <%# end %>
-    <%#= f.input :entry_date, label: "Date", as: :date, html5: true %>
-    <%#= f.hidden_field :goal_id, value: @goal_id %>
-    <%= f.button :submit, class: "my-btn mb-3 d-flex justify-content-center" %>
+    <h1><%= f.input :entry_text, label: false %></h1>
+    <%= f.submit "Submit", class: "my-btn mb-3 d-flex justify-content-center" %>
   <% end %>
 </div>
 

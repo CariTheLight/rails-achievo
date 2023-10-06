@@ -1,6 +1,10 @@
 
+
 body {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 .footer {
   margin-top: auto;
@@ -13,3 +17,12 @@ body {
   align-items: center;
   gap: 0.2rem;
 }
+
+
+
+
+
+
+
+
+

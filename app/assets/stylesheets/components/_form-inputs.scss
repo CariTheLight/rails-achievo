@@ -1,5 +1,6 @@
 .form-inputs{
   color: #000000;
+  // border-radius: 5px;
   // font-family: "Prata", "serif";
 }
 
@@ -31,6 +32,7 @@
   border-radius: 5px;
   text-decoration: none;
   color: $green;
+  width: 100%;
   &:hover {
     border: 2px solid white;
     background-color: $green;
@@ -52,4 +54,8 @@
     background-color: $green;
     color: #F4F4F4;
   }
+}
+
+textarea {
+  height: 160px;
 }

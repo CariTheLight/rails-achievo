@@ -31,9 +31,8 @@ class JournalEntriesController < ApplicationController
   end
 
   def edit
-    # @goal = Goal.find(params[:goal_id])
-    # @task = Task.find(params[:task_id])
     @journal_entry = JournalEntry.find(params[:id])
+    @goal = @journal_entry.task.goal
   end
 
   def update

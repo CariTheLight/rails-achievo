@@ -1,13 +1,12 @@
 <div class="container mx-auto mb-5 mt-5">
   <div class="content mx-5 mb-3 pt-5 pb-3">
-      <div class='d-flex justify-content-between'>
-    <h1><%= @goal.name %></h1>
+      <div class='back-heading'>
     <%= link_to goals_path, class: 'close-btn' do %>
       <i class="fa-solid fa-arrow-left"></i>
     <% end %>
+    <h1 class="fw-bold"><%= @goal.name %></h1>
   </div>
-    <b><h3><%= @goal.description %></h3></b>
-    <b><h2>Tasks</h2></b>
+    <h3 class="secondary-heading"><%= @goal.description %></h3>
     <!-- Progress Bar -->
     <div class="progress-group mb-3">
       <div class="progress">
@@ -18,13 +17,13 @@
   <%= link_to "All Journal Entries", goal_journal_entries_path(@goal), class: "my-btn d-flex justify-content-center" %>
 
     <!-- Task Cards -->
-    <div class="task-list">
+    <div class="task-list mt-3">
+    <h2 class="my-2">Tasks</h2>
       <%= render partial: "task_list", locals: {tasks: @uncompleted_tasks, goal: @goal} %>
       <%= render partial: "task_list", locals: {tasks: @completed_tasks, goal: @goal} %>
       <div class="mt-4">
       <%= link_to "Add Task", new_goal_task_path(@goal), class: "my-btn d-flex justify-content-center" %>
       </div>
-
     </div>
   </div>
 </div>

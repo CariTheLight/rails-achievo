@@ -250,3 +250,10 @@ quotes = [
 quotes.each do |quote|
   MotivationalQuote.create(text: quote)
 end
+
+
+
+
+
+
+
