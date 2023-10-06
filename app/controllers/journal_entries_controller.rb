@@ -22,9 +22,10 @@ class JournalEntriesController < ApplicationController
     @journal_entry = JournalEntry.new(journal_entry_params)
     @journal_entry.task = @task
     @journal_entry.entry_date = Date.today
+    @goal = Goal.find(params[:goal_id])
     # @journal_entry.save
     if @journal_entry.save
-      redirect_to journal_entry_path(@journal_entry), notice: 'Journal entry was successfully created.'
+      redirect_to goal_journal_entries_path(@goal), notice: 'Journal entry was successfully created.'
     else
       render :new
     end

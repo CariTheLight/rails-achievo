@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   post '/submit_prompt', to: 'pages#submit_prompt'
   get '/home/random_quotes', to: 'home#random_quotes'
-  get 'journal_entries', to: 'goals#journal_entries_index'
+  # get 'journal_entries', to: 'goals#journal_entries_index'
 
   resources :goals do
     resources :journal_entries, only: [:index]
