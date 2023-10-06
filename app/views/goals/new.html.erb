@@ -1,6 +1,6 @@
 <div data-controller="loading">
-  <div class="container card rounded-5 mx-auto my-5 py-5 px-5" data-loading-target= 'form' >
-      <h1>My Next Big Goal</h1>
+  <div class="container card mx-auto my-5 p-5" data-loading-target= 'form' >
+      <h1 class="heading-text">MY NEXT ACHIEVOMENT</h1>
       <br>
       <%= simple_form_for(@goal, html: { id:'goal-form'} ) do |f| %>
         <%= f.error_notification %>
@@ -18,6 +18,8 @@
           <%= f.submit "Create" , class: "my-btn", id: "submit-btn" %>
         </div>
     <% end %>
+  </div>
+  <div class="spacer">
   </div>
       <!-- Loading screen -->
   <div id="loading-screen" class="d-none" data-loading-target="screen">

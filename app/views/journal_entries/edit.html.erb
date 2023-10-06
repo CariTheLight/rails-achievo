@@ -1,11 +1,12 @@
-<div class="container p-4 mx-auto">
-<div class="edit-journal d-flex justify-content-between " >
-    <!--<h1><%#= "Edit Journal entry" %></h1>-->
-  <h1>Tell me how you really feel</h1>
-  <%= link_to goal_journal_entries_path(@goal), class: 'close-btn' do %>
+<div class="container p-5 my-5 mx-auto">
+  <div class="edit-journal d-flex justify-content-between">
+    <div class="back-heading">
+      <%= link_to goal_journal_entries_path(@goal), class: 'close-btn' do %>
         <i class="fa-solid fa-arrow-left"></i>
-  <% end %>
-</div>
+      <% end %>
+      <h1>TELL ME HOW YOU REALLY FEEL</h1>
+    </div>
+  </div>
   <%= simple_form_for @journal_entry do |f| %>
     <h1><%= f.input :entry_text, label: false %></h1>
     <%= f.submit "Submit", class: "my-btn mb-3 d-flex justify-content-center" %>
