@@ -24,16 +24,20 @@
             <% end %>
           </div>
           <% task.journal_entries.each_with_index do |journal_entry, index| %>
-          <button class="my-btn" type="button" data-bs-toggle="collapse" data-bs-target="<%= "#collapseExample#{index}" %>"aria-expanded="false" aria-controls="<%= "collapseExample#{index}" %>">
+          <button class="my-btn mb-2" type="button" data-bs-toggle="collapse" data-bs-target="<%= "#collapseExample#{index}" %>"aria-expanded="false" aria-controls="<%= "collapseExample#{index}" %>">
             View Journal
           </button>
           <div class="collapse" id= "<%= "collapseExample#{index}" %>">
               <div class="card card-body color">
-                <%= journal_entry.entry_text %>
-                <%= journal_entry.entry_date %>
-
-                <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "my-btn" %>
-                <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "my-btn", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                <div class="card-content mb-2 p-4">
+                <strong><%= journal_entry.entry_date %></strong>
+                <br>
+                <em><%= journal_entry.entry_text %></em>
+              </div>
+                <div class="d-flex justify-content-between d-grid gap-5">
+                <%= link_to "Edit Entry",  edit_journal_entry_path(journal_entry), class: "my-btn text-center" %>
+                <%= link_to "Delete Entry", journal_entry_path(journal_entry), class: "my-btn text-center", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                </div>
               </div>
           </div>
             <% end %>

@@ -2,5 +2,5 @@
 <h1>Entries</h1>
 <%= @journal_entry.entry_text %>
 <%=@journal_entry.entry_date  %>
-<%= link_to "Show all entries", goal_journal_entries_path(@journal_entry.task.goal), class: "my-btn" %>
+<%= link_to "Show all entries", goal_journal_entries_path(@journal_entry.task.goal), class: "mt-3 my-btn d-flex justify-content-center" %>
 </div>

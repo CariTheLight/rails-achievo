@@ -34,14 +34,6 @@
     justify-content: left;
 }
 
-.textarea {
-    font-family: "Prata", "serif";
-    h1 {
-        font-family: "Prata", "serif";
-        font-weight: lighter;
-    }
-}
-
 .card-body {
     padding: 10px;
 }
@@ -52,7 +44,7 @@
 
 .goal-card {
     background-color: #37423D;
-    padding: 1rem;
+    padding: 1.4rem;
     margin: 0.7rem 0;
     border-radius: .5rem;
      i {
@@ -63,4 +55,10 @@
         margin-bottom: 0;
         display: inline;
     }
+}
+.back-heading {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 16px;
 }
