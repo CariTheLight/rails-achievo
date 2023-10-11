@@ -1,6 +1,10 @@
 .form-inputs{
-  color: #37423D;
+  color: white;
   font-size: large;
+  border-radius: 2px;
+
+  // border-radius: 5px;
+  // font-family: "Prata", "serif";
 }
 
 #goal_name, #goal_description, #goal_start_date, #goal_end_date, #goal_resources, #goal_time_available  {
@@ -58,4 +62,11 @@
 
 textarea {
   height: 160px;
+}
+.form-control {
+  color: #37423D;
+}
+#user_email, #user_password {
+  background-color: #37423D;
+  color: #F4F4F4;
 }
