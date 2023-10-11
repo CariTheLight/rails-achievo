@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
   def index
     @goals = Goal.all
     @goals_progresses = []
+    @goals = current_user.goals
 
     # @goal = Goal.find(params[:goal_id])
     # @journal_entries = @goal.journal_entries
@@ -35,6 +36,7 @@ class GoalsController < ApplicationController
 
   def create
     @goal = Goal.new(goal_params)
+    puts current_user.id
     @goal.user = current_user
     if @goal.save! && @goal.generate_tasks
       Goal.submit_prompt(@goal)
