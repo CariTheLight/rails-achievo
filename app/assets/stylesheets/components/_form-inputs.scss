@@ -21,6 +21,11 @@
   color: #F4F4F4;
   opacity: 100%;
 }
+
+#user_email, #user_password, #user_password_confirmation {
+  color:#37423D;
+}
+
 .edit-btns {
   display: flex;
   justify-content: space-between;
@@ -59,3 +64,4 @@
 textarea {
   height: 160px;
 }
+
